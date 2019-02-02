@@ -3,8 +3,8 @@
 #include <cstdlib>
 #include <opencv2/opencv.hpp>
 
-#define rsize0 0.25
-#define rsize1 0.25
+#define rsize0 0.75
+#define rsize1 0.5
 #define rsize2 0.25
 
 using namespace cv;
