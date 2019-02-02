@@ -52,7 +52,7 @@ int main(int argc, char** argv )
   imwrite( basename + "_G.png", gImg );
   imwrite( basename + "_B.png", bImg );
 //--------------------------------------
-
+//---
 
   Mat res_imgR, res_imgG, res_imgB;
   resize(rImg, res_imgR, Size(), rsize0, rsize0, INTER_LINEAR);
