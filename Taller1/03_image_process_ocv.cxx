@@ -28,7 +28,7 @@ int main(int argc, char** argv )
   }
 
 
-//--------------------------------------
+//----------
 	vector<Mat> channels;
  	split(image, channels);
 
