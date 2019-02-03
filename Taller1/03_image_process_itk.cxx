@@ -389,7 +389,7 @@ int main(int argc, char const *argv[])
 	reader4->SetFileName( basename + "_ssR.png" );
 	try
 	{
-	    reader1->Update( );
+	    reader4->Update( );
 	}
 	catch( itk::ExceptionObject& err )
 	{
@@ -436,33 +436,31 @@ int main(int argc, char const *argv[])
   	RGB_2_0->SetBufferedRegion( img->GetBufferedRegion( ) );
   	RGB_2_0->Allocate( );
 
-  	RGB_2_0->FillBuffer( black );
+    RGB_2_0->FillBuffer( black );
 
-  	TColorIterator it2( RGB_2_0, RGB_2_0->GetLargestPossibleRegion( ) );
-  	TColorIterator crIt2( ssR, ssR->GetLargestPossibleRegion( ) );
-  	TColorIterator cgIt2( ssG, ssG->GetLargestPossibleRegion( ) );
-  	TColorIterator cbIt2( ssB, ssB->GetLargestPossibleRegion( ) );
+    // Fill color channel images
+    TColorIterator it2( RGB_2_0, RGB_2_0->GetLargestPossibleRegion( ) );
+    TIterator itR( ssR, ssR->GetLargestPossibleRegion( ) );
+    TIterator itG( ssG, ssG->GetLargestPossibleRegion( ) );
+    TIterator itB( ssB, ssB->GetLargestPossibleRegion( ) );
 
-  	it2.GoToBegin( );
-  	crIt2.GoToBegin( );
-  	cgIt2.GoToBegin( );
-  	cbIt2.GoToBegin( );
+    it2.GoToBegin( );
+    itR.GoToBegin( );
+    itG.GoToBegin( );
+    itB.GoToBegin( );
 
-  	for( ; !it2.IsAtEnd( ) && !crIt2.IsAtEnd( ) && !cgIt2.IsAtEnd( ) && !cbIt2.IsAtEnd( ); ++it2, ++crIt2, ++cgIt2, ++cbIt2 )
-  	{
-	    TRGBPixel value, pixel;
-	    value = crIt2.Get( );
-	    pixel.SetRed( value.GetRed( ) );
+    for( ; !it2.IsAtEnd() && !itR.IsAtEnd() && !itG.IsAtEnd() && !itB.IsAtEnd(); ++it2, ++itR, ++itG, ++itB )
+    {
+      TRGBPixel value, pixelR, pixelG, pixelB;
+      pixelR = itR.Get();
+      pixelG = itG.Get();
+      pixelB = itB.Get();
+      value.SetRed(pixelR.GetRed());
+      value.SetGreen(pixelG.GetGreen());
+      value.SetBlue(pixelB.GetBlue());
 
-	    value = cgIt2.Get( );
-	    pixel.SetGreen( value.GetGreen( ) );
-
-	    value = cbIt2.Get( );
-	    pixel.SetBlue( value.GetBlue( ) );
-
-	    it2.Set( pixel );
-
-  	} // rof
+      it2.Set(value);
+    } // rof
 
   	writer->SetInput( RGB_2_0 );
   	writer->SetFileName( basename + "_rRGB.png" );
@@ -476,7 +474,7 @@ int main(int argc, char const *argv[])
   	{
     	std::cerr << "Error: " << err << std::endl;
     	return( 1 );
- 	} // yrt
+ 	  } // yrt
 
 
 	TColorImage::Pointer diff = TColorImage::New( );
@@ -494,6 +492,7 @@ int main(int argc, char const *argv[])
 	it.GoToBegin( );
 	it2.GoToBegin( );
 	it3.GoToBegin( );
+  std::cout << "img size " << img->GetLargestPossibleRegion( ).GetSize( ) << " rgb size " << RGB_2_0->GetLargestPossibleRegion( ).GetSize( ) << std::endl;
 
 	for( ; !it.IsAtEnd( ) && !it2.IsAtEnd( ) && !it3.IsAtEnd( ); ++it, ++it2, ++it3 )
 	{
