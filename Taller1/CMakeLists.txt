@@ -40,6 +40,9 @@ MARK_AS_ADVANCED(
 ## = Programs to compile =
 ## =======================
 
+ADD_EXECUTABLE( pr3_process_ocv 03_image_process_ocv.cxx )
+TARGET_LINK_LIBRARIES( pr3_process_ocv ${OpenCV_LIBS} )
+
 ADD_EXECUTABLE( pr3_process_itk 03_image_process_itk.cxx )
 TARGET_LINK_LIBRARIES( pr3_process_itk ${ITK_LIBRARIES} )
 
