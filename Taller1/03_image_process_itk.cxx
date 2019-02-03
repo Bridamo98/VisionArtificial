@@ -17,8 +17,8 @@
 #include <itkIdentityTransform.h>
 #include <itkResampleImageFilter.h>
 
-#define rsize0 0.75
-#define rsize1 0.5
+#define rsize0 0.25
+#define rsize1 0.25
 #define rsize2 0.25
 
 // Image type: 2-dimensional 1-byte rgb
@@ -265,48 +265,95 @@ int main(int argc, char const *argv[])
     	std::cerr << "Error: " << err << std::endl;
     	return( 1 );
  	} // yrt
- 	
 
- 	redOutputSize[ 0 ] = redInputSize[ 0 ];
-   	redOutputSize[ 1 ] = redInputSize[ 1 ];
+
+ 	// Read an image
+	TReader::Pointer reader1 = TReader::New( );
+	reader1->SetFileName( basename + "_sR.png" );
+	try
+	{
+	    reader1->Update( );
+	}
+	catch( itk::ExceptionObject& err )
+	{
+	    std::cerr << "Error: " << err << std::endl;
+	    return( 1 );
+
+	} // yrt
+	TColorImage* sR = reader1->GetOutput( );
+	 // Read an image
+	TReader::Pointer reader2 = TReader::New( );
+	reader2->SetFileName( basename + "_sG.png" );
+	try
+	{
+	    reader2->Update( );
+	}
+	catch( itk::ExceptionObject& err )
+	{
+	    std::cerr << "Error: " << err << std::endl;
+	    return( 1 );
+
+	} // yrt
+	TColorImage* sG = reader2->GetOutput( );
+	 // Read an image
+	TReader::Pointer reader3 = TReader::New( );
+	reader3->SetFileName( basename + "_sB.png" );
+	try
+	{
+	    reader3->Update( );
+	}
+	catch( itk::ExceptionObject& err )
+	{
+	    std::cerr << "Error: " << err << std::endl;
+	    return( 1 );
+
+	} // yrt
+	TColorImage* sB = reader3->GetOutput( );
+
+ 	redInputSize = sR->GetLargestPossibleRegion( ).GetSize( );
+    greenInputSize = sG->GetLargestPossibleRegion( ).GetSize( );
+    blueInputSize = sB->GetLargestPossibleRegion( ).GetSize( );
+
+ 	redOutputSize[ 0 ] = redInputSize[ 0 ] * (1/rsize0);
+   	redOutputSize[ 1 ] = redInputSize[ 1 ] * (1/rsize0);
 
 	
-    greenOutputSize[ 0 ] = greenInputSize[ 0 ];
-   	greenOutputSize[ 1 ] = greenInputSize[ 1 ];   	
+    greenOutputSize[ 0 ] = greenInputSize[ 0 ] * (1/rsize1);
+   	greenOutputSize[ 1 ] = greenInputSize[ 1 ] * (1/rsize1);
 
 	
-    blueOutputSize[ 0 ] = blueInputSize[ 0 ];
-   	blueOutputSize[ 1 ] = blueInputSize[ 1 ];
+    blueOutputSize[ 0 ] = blueInputSize[ 0 ] * (1/rsize2);
+   	blueOutputSize[ 1 ] = blueInputSize[ 1 ] * (1/rsize2);
 
    	redOutputSpacing[ 0 ] = 
-    	rImg->GetSpacing( )[ 0 ] * ( static_cast< double >( redInputSize[ 0 ] ) / static_cast< double >( redOutputSize[ 0 ] ) );
+    	sR->GetSpacing( )[ 0 ] * ( static_cast< double >( redInputSize[ 0 ] ) / static_cast< double >( redOutputSize[ 0 ] ) );
   	redOutputSpacing[ 1 ] = 
-    	rImg->GetSpacing( )[ 1 ] * ( static_cast< double >( redInputSize[ 1 ] ) / static_cast< double >( redOutputSize[ 1 ] ) );
+    	sR->GetSpacing( )[ 1 ] * ( static_cast< double >( redInputSize[ 1 ] ) / static_cast< double >( redOutputSize[ 1 ] ) );
 
     greenOutputSpacing[ 0 ] = 
-    	gImg->GetSpacing( )[ 0 ] * ( static_cast< double >( greenInputSize[ 0 ] ) / static_cast< double >( greenOutputSize[ 0 ] ) );
+    	sG->GetSpacing( )[ 0 ] * ( static_cast< double >( greenInputSize[ 0 ] ) / static_cast< double >( greenOutputSize[ 0 ] ) );
   	greenOutputSpacing[ 1 ] = 
-    	gImg->GetSpacing( )[ 1 ] * ( static_cast< double >( greenInputSize[ 1 ] ) / static_cast< double >( greenOutputSize[ 1 ] ) );
+    	sG->GetSpacing( )[ 1 ] * ( static_cast< double >( greenInputSize[ 1 ] ) / static_cast< double >( greenOutputSize[ 1 ] ) );
 
     blueOutputSpacing[ 0 ] = 
-    	bImg->GetSpacing( )[ 0 ] * ( static_cast< double >( blueInputSize[ 0 ] ) / static_cast< double >( blueOutputSize[ 0 ] ) );
+    	sB->GetSpacing( )[ 0 ] * ( static_cast< double >( blueInputSize[ 0 ] ) / static_cast< double >( blueOutputSize[ 0 ] ) );
   	blueOutputSpacing[ 1 ] = 
-    	bImg->GetSpacing( )[ 1 ] * ( static_cast< double >( blueInputSize[ 1 ] ) / static_cast< double >( blueOutputSize[ 1 ] ) );
+    	sB->GetSpacing( )[ 1 ] * ( static_cast< double >( blueInputSize[ 1 ] ) / static_cast< double >( blueOutputSize[ 1 ] ) );
 
     resampleFilter->SetTransform( TransformType::New( ) );
-  	resampleFilter->SetInput( rImg );
+  	resampleFilter->SetInput( sR );
   	resampleFilter->SetSize( redOutputSize );
   	resampleFilter->SetOutputSpacing( redOutputSpacing );
   	resampleFilter->UpdateLargestPossibleRegion( );
 
   	resampleFilter2->SetTransform( TransformType::New( ) );
-  	resampleFilter2->SetInput( gImg );
+  	resampleFilter2->SetInput( sG );
   	resampleFilter2->SetSize( greenOutputSize );
   	resampleFilter2->SetOutputSpacing( greenOutputSpacing );
   	resampleFilter2->UpdateLargestPossibleRegion( );
 
   	resampleFilter3->SetTransform( TransformType::New( ) );
-  	resampleFilter3->SetInput( bImg );
+  	resampleFilter3->SetInput( sB );
   	resampleFilter3->SetSize( blueOutputSize );
   	resampleFilter3->SetOutputSpacing( blueOutputSpacing );
   	resampleFilter3->UpdateLargestPossibleRegion( );
@@ -336,9 +383,49 @@ int main(int argc, char const *argv[])
  	} // yrt
 
 
- 	TColorImage* ssR = (TColorImage*)resampleFilter->GetInput();
- 	TColorImage* ssG = (TColorImage*)resampleFilter2->GetInput();
- 	TColorImage* ssB = (TColorImage*)resampleFilter3->GetInput();
+
+ 	// Read an image
+	TReader::Pointer reader4 = TReader::New( );
+	reader4->SetFileName( basename + "_ssR.png" );
+	try
+	{
+	    reader1->Update( );
+	}
+	catch( itk::ExceptionObject& err )
+	{
+	    std::cerr << "Error: " << err << std::endl;
+	    return( 1 );
+
+	} // yrt
+	TColorImage* ssR = reader4->GetOutput( );
+	 // Read an image
+	TReader::Pointer reader5 = TReader::New( );
+	reader5->SetFileName( basename + "_ssG.png" );
+	try
+	{
+	    reader5->Update( );
+	}
+	catch( itk::ExceptionObject& err )
+	{
+	    std::cerr << "Error: " << err << std::endl;
+	    return( 1 );
+
+	} // yrt
+	TColorImage* ssG = reader5->GetOutput( );
+	 // Read an image
+	TReader::Pointer reader6 = TReader::New( );
+	reader6->SetFileName( basename + "_ssB.png" );
+	try
+	{
+	    reader6->Update( );
+	}
+	catch( itk::ExceptionObject& err )
+	{
+	    std::cerr << "Error: " << err << std::endl;
+	    return( 1 );
+
+	} // yrt
+	TColorImage* ssB = reader6->GetOutput( );
 
  	// composite image (RGB)
   	TColorImage::Pointer RGB_2_0 = TColorImage::New( );
@@ -363,17 +450,17 @@ int main(int argc, char const *argv[])
 
   	for( ; !it2.IsAtEnd( ) && !crIt2.IsAtEnd( ) && !cgIt2.IsAtEnd( ) && !cbIt2.IsAtEnd( ); ++it2, ++crIt2, ++cgIt2, ++cbIt2 )
   	{
-    TRGBPixel value, pixel;
-    value = crIt2.Get( );
-    pixel.SetRed( value.GetRed( ) );
+	    TRGBPixel value, pixel;
+	    value = crIt2.Get( );
+	    pixel.SetRed( value.GetRed( ) );
 
-    value = cgIt2.Get( );
-    pixel.SetGreen( value.GetGreen( ) );
+	    value = cgIt2.Get( );
+	    pixel.SetGreen( value.GetGreen( ) );
 
-    value = cbIt2.Get( );
-    pixel.SetBlue( value.GetBlue( ) );
+	    value = cbIt2.Get( );
+	    pixel.SetBlue( value.GetBlue( ) );
 
-    it2.Set( pixel );
+	    it2.Set( pixel );
 
   	} // rof
 
@@ -390,6 +477,48 @@ int main(int argc, char const *argv[])
     	std::cerr << "Error: " << err << std::endl;
     	return( 1 );
  	} // yrt
+
+
+	TColorImage::Pointer diff = TColorImage::New( );
+	diff->SetSpacing( img->GetSpacing( ) );
+	diff->SetOrigin( img->GetOrigin( ) );
+	diff->SetLargestPossibleRegion( img->GetLargestPossibleRegion( ) );
+	diff->SetRequestedRegion( img->GetRequestedRegion( ) );
+	diff->SetBufferedRegion( img->GetBufferedRegion( ) );
+	diff->Allocate( );
+
+ 	diff->FillBuffer( black );
+
+ 	TColorIterator it3( diff, diff->GetLargestPossibleRegion( ) );
+
+	it.GoToBegin( );
+	it2.GoToBegin( );
+	it3.GoToBegin( );
+
+	for( ; !it.IsAtEnd( ) && !it2.IsAtEnd( ) && !it3.IsAtEnd( ); ++it, ++it2, ++it3 )
+	{
+		TRGBPixel value, value2, pixel;
+		value = it.Get( );
+		value2 = it2.Get( );
+		pixel.SetRed( abs((int)value.GetRed( ) - (int)value2.GetRed( )) );
+		pixel.SetGreen( abs((int)value.GetGreen( ) - (int)value2.GetGreen( )) );
+		pixel.SetBlue( abs((int)value.GetBlue( ) - (int)value2.GetBlue( )) );
+
+		it3.Set( pixel );
+	} // rof
+
+	writer->SetInput( diff );
+	writer->SetFileName( basename + "_diff.png" );
+
+	try
+	{
+  	writer->Update( );
+	}
+	catch( itk::ExceptionObject& err )
+	{
+  	std::cerr << "Error: " << err << std::endl;
+  	return( 1 );
+	} // yrt
 
 	return 0;
 }
