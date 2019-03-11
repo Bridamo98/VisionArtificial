@@ -1,0 +1,3 @@
+/home/brandonnc/Documentos/VisionArtificial/proyectoVAE2/build/CMakeFiles/rebuild_cache.dir
+/home/brandonnc/Documentos/VisionArtificial/proyectoVAE2/build/CMakeFiles/proyectoVAE2v1.dir
+/home/brandonnc/Documentos/VisionArtificial/proyectoVAE2/build/CMakeFiles/edit_cache.dir
