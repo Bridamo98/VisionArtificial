@@ -1,0 +1,3 @@
+/home/briam/Escritorio/VisionArtificial/Taller2/build/CMakeFiles/rebuild_cache.dir
+/home/briam/Escritorio/VisionArtificial/Taller2/build/CMakeFiles/taller2.dir
+/home/briam/Escritorio/VisionArtificial/Taller2/build/CMakeFiles/edit_cache.dir
