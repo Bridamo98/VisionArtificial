@@ -6,12 +6,14 @@
 
 #IncludeRegexTransform: 
 
-/home/brandonnc/Documentos/VisionArtificial/proyectoVAE2/proyectoVAE2v1.cxx
+/home/brandonn/Documentos/visionArtificial/proyecto/VisionArtificial/proyectoVAE2/proyectoVAE2v1.cxx
 stdio.h
 -
 opencv2/opencv.hpp
 -
 map
+-
+sstream
 -
 
 /usr/local/include/opencv4/opencv2/calib3d.hpp
