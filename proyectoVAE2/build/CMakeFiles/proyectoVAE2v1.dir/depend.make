@@ -73,8 +73,10 @@ CMakeFiles/proyectoVAE2v1.dir/proyectoVAE2v1.cxx.o: /usr/local/include/opencv4/o
 CMakeFiles/proyectoVAE2v1.dir/proyectoVAE2v1.cxx.o: /usr/local/include/opencv4/opencv2/flann/saving.h
 CMakeFiles/proyectoVAE2v1.dir/proyectoVAE2v1.cxx.o: /usr/local/include/opencv4/opencv2/flann/timer.h
 CMakeFiles/proyectoVAE2v1.dir/proyectoVAE2v1.cxx.o: /usr/local/include/opencv4/opencv2/highgui.hpp
+CMakeFiles/proyectoVAE2v1.dir/proyectoVAE2v1.cxx.o: /usr/local/include/opencv4/opencv2/highgui/highgui.hpp
 CMakeFiles/proyectoVAE2v1.dir/proyectoVAE2v1.cxx.o: /usr/local/include/opencv4/opencv2/imgcodecs.hpp
 CMakeFiles/proyectoVAE2v1.dir/proyectoVAE2v1.cxx.o: /usr/local/include/opencv4/opencv2/imgproc.hpp
+CMakeFiles/proyectoVAE2v1.dir/proyectoVAE2v1.cxx.o: /usr/local/include/opencv4/opencv2/imgproc/imgproc.hpp
 CMakeFiles/proyectoVAE2v1.dir/proyectoVAE2v1.cxx.o: /usr/local/include/opencv4/opencv2/ml.hpp
 CMakeFiles/proyectoVAE2v1.dir/proyectoVAE2v1.cxx.o: /usr/local/include/opencv4/opencv2/ml/ml.inl.hpp
 CMakeFiles/proyectoVAE2v1.dir/proyectoVAE2v1.cxx.o: /usr/local/include/opencv4/opencv2/objdetect.hpp
