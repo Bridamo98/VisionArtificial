@@ -38,6 +38,7 @@ CMakeFiles/etiquetadoDistancias.dir/etiquetadoDistancias.cxx.o: /usr/local/inclu
 CMakeFiles/etiquetadoDistancias.dir/etiquetadoDistancias.cxx.o: /usr/local/include/opencv4/opencv2/dnn/dnn.hpp
 CMakeFiles/etiquetadoDistancias.dir/etiquetadoDistancias.cxx.o: /usr/local/include/opencv4/opencv2/dnn/dnn.inl.hpp
 CMakeFiles/etiquetadoDistancias.dir/etiquetadoDistancias.cxx.o: /usr/local/include/opencv4/opencv2/dnn/layer.hpp
+CMakeFiles/etiquetadoDistancias.dir/etiquetadoDistancias.cxx.o: /usr/local/include/opencv4/opencv2/dnn/utils/inference_engine.hpp
 CMakeFiles/etiquetadoDistancias.dir/etiquetadoDistancias.cxx.o: /usr/local/include/opencv4/opencv2/dnn/version.hpp
 CMakeFiles/etiquetadoDistancias.dir/etiquetadoDistancias.cxx.o: /usr/local/include/opencv4/opencv2/features2d.hpp
 CMakeFiles/etiquetadoDistancias.dir/etiquetadoDistancias.cxx.o: /usr/local/include/opencv4/opencv2/flann.hpp

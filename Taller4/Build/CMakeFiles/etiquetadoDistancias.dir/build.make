@@ -43,10 +43,10 @@ RM = /usr/bin/cmake -E remove -f
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = "/home/brandonn/Documentos/visionArtificial/ejercicios/Talleres y ejercicios/Taller4"
+CMAKE_SOURCE_DIR = /home/briam-agudelo/Escritorio/VisionArtificial/Taller4
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = "/home/brandonn/Documentos/visionArtificial/ejercicios/Talleres y ejercicios/Taller4/Build"
+CMAKE_BINARY_DIR = /home/briam-agudelo/Escritorio/VisionArtificial/Taller4/Build
 
 # Include any dependencies generated for this target.
 include CMakeFiles/etiquetadoDistancias.dir/depend.make
@@ -59,16 +59,16 @@ include CMakeFiles/etiquetadoDistancias.dir/flags.make
 
 CMakeFiles/etiquetadoDistancias.dir/etiquetadoDistancias.cxx.o: CMakeFiles/etiquetadoDistancias.dir/flags.make
 CMakeFiles/etiquetadoDistancias.dir/etiquetadoDistancias.cxx.o: ../etiquetadoDistancias.cxx
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir="/home/brandonn/Documentos/visionArtificial/ejercicios/Talleres y ejercicios/Taller4/Build/CMakeFiles" --progress-num=$(CMAKE_PROGRESS_1) "Building CXX object CMakeFiles/etiquetadoDistancias.dir/etiquetadoDistancias.cxx.o"
-	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/etiquetadoDistancias.dir/etiquetadoDistancias.cxx.o -c "/home/brandonn/Documentos/visionArtificial/ejercicios/Talleres y ejercicios/Taller4/etiquetadoDistancias.cxx"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/briam-agudelo/Escritorio/VisionArtificial/Taller4/Build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Building CXX object CMakeFiles/etiquetadoDistancias.dir/etiquetadoDistancias.cxx.o"
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/etiquetadoDistancias.dir/etiquetadoDistancias.cxx.o -c /home/briam-agudelo/Escritorio/VisionArtificial/Taller4/etiquetadoDistancias.cxx
 
 CMakeFiles/etiquetadoDistancias.dir/etiquetadoDistancias.cxx.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/etiquetadoDistancias.dir/etiquetadoDistancias.cxx.i"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E "/home/brandonn/Documentos/visionArtificial/ejercicios/Talleres y ejercicios/Taller4/etiquetadoDistancias.cxx" > CMakeFiles/etiquetadoDistancias.dir/etiquetadoDistancias.cxx.i
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/briam-agudelo/Escritorio/VisionArtificial/Taller4/etiquetadoDistancias.cxx > CMakeFiles/etiquetadoDistancias.dir/etiquetadoDistancias.cxx.i
 
 CMakeFiles/etiquetadoDistancias.dir/etiquetadoDistancias.cxx.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/etiquetadoDistancias.dir/etiquetadoDistancias.cxx.s"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S "/home/brandonn/Documentos/visionArtificial/ejercicios/Talleres y ejercicios/Taller4/etiquetadoDistancias.cxx" -o CMakeFiles/etiquetadoDistancias.dir/etiquetadoDistancias.cxx.s
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/briam-agudelo/Escritorio/VisionArtificial/Taller4/etiquetadoDistancias.cxx -o CMakeFiles/etiquetadoDistancias.dir/etiquetadoDistancias.cxx.s
 
 CMakeFiles/etiquetadoDistancias.dir/etiquetadoDistancias.cxx.o.requires:
 
@@ -92,21 +92,21 @@ etiquetadoDistancias: CMakeFiles/etiquetadoDistancias.dir/etiquetadoDistancias.c
 etiquetadoDistancias: CMakeFiles/etiquetadoDistancias.dir/build.make
 etiquetadoDistancias: /usr/local/lib/libopencv_dnn.so.4.1.0
 etiquetadoDistancias: /usr/local/lib/libopencv_gapi.so.4.1.0
+etiquetadoDistancias: /usr/local/lib/libopencv_highgui.so.4.1.0
 etiquetadoDistancias: /usr/local/lib/libopencv_ml.so.4.1.0
 etiquetadoDistancias: /usr/local/lib/libopencv_objdetect.so.4.1.0
 etiquetadoDistancias: /usr/local/lib/libopencv_photo.so.4.1.0
 etiquetadoDistancias: /usr/local/lib/libopencv_stitching.so.4.1.0
 etiquetadoDistancias: /usr/local/lib/libopencv_video.so.4.1.0
+etiquetadoDistancias: /usr/local/lib/libopencv_videoio.so.4.1.0
+etiquetadoDistancias: /usr/local/lib/libopencv_imgcodecs.so.4.1.0
 etiquetadoDistancias: /usr/local/lib/libopencv_calib3d.so.4.1.0
 etiquetadoDistancias: /usr/local/lib/libopencv_features2d.so.4.1.0
 etiquetadoDistancias: /usr/local/lib/libopencv_flann.so.4.1.0
-etiquetadoDistancias: /usr/local/lib/libopencv_highgui.so.4.1.0
-etiquetadoDistancias: /usr/local/lib/libopencv_videoio.so.4.1.0
-etiquetadoDistancias: /usr/local/lib/libopencv_imgcodecs.so.4.1.0
 etiquetadoDistancias: /usr/local/lib/libopencv_imgproc.so.4.1.0
 etiquetadoDistancias: /usr/local/lib/libopencv_core.so.4.1.0
 etiquetadoDistancias: CMakeFiles/etiquetadoDistancias.dir/link.txt
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir="/home/brandonn/Documentos/visionArtificial/ejercicios/Talleres y ejercicios/Taller4/Build/CMakeFiles" --progress-num=$(CMAKE_PROGRESS_2) "Linking CXX executable etiquetadoDistancias"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/home/briam-agudelo/Escritorio/VisionArtificial/Taller4/Build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Linking CXX executable etiquetadoDistancias"
 	$(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/etiquetadoDistancias.dir/link.txt --verbose=$(VERBOSE)
 
 # Rule to build all files generated by this target.
@@ -123,6 +123,6 @@ CMakeFiles/etiquetadoDistancias.dir/clean:
 .PHONY : CMakeFiles/etiquetadoDistancias.dir/clean
 
 CMakeFiles/etiquetadoDistancias.dir/depend:
-	cd "/home/brandonn/Documentos/visionArtificial/ejercicios/Talleres y ejercicios/Taller4/Build" && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" "/home/brandonn/Documentos/visionArtificial/ejercicios/Talleres y ejercicios/Taller4" "/home/brandonn/Documentos/visionArtificial/ejercicios/Talleres y ejercicios/Taller4" "/home/brandonn/Documentos/visionArtificial/ejercicios/Talleres y ejercicios/Taller4/Build" "/home/brandonn/Documentos/visionArtificial/ejercicios/Talleres y ejercicios/Taller4/Build" "/home/brandonn/Documentos/visionArtificial/ejercicios/Talleres y ejercicios/Taller4/Build/CMakeFiles/etiquetadoDistancias.dir/DependInfo.cmake" --color=$(COLOR)
+	cd /home/briam-agudelo/Escritorio/VisionArtificial/Taller4/Build && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /home/briam-agudelo/Escritorio/VisionArtificial/Taller4 /home/briam-agudelo/Escritorio/VisionArtificial/Taller4 /home/briam-agudelo/Escritorio/VisionArtificial/Taller4/Build /home/briam-agudelo/Escritorio/VisionArtificial/Taller4/Build /home/briam-agudelo/Escritorio/VisionArtificial/Taller4/Build/CMakeFiles/etiquetadoDistancias.dir/DependInfo.cmake --color=$(COLOR)
 .PHONY : CMakeFiles/etiquetadoDistancias.dir/depend
 

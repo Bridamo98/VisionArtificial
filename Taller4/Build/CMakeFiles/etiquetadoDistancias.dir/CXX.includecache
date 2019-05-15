@@ -6,7 +6,7 @@
 
 #IncludeRegexTransform: 
 
-/home/brandonn/Documentos/visionArtificial/ejercicios/Talleres y ejercicios/Taller4/etiquetadoDistancias.cxx
+/home/briam-agudelo/Escritorio/VisionArtificial/Taller4/etiquetadoDistancias.cxx
 stdio.h
 -
 iostream
@@ -24,6 +24,8 @@ unistd.h
 iterator
 -
 map
+-
+math.h
 -
 opencv2/opencv.hpp
 -
@@ -363,6 +365,8 @@ vector
 -
 opencv2/core.hpp
 -
+future
+-
 ../dnn/version.hpp
 /usr/local/include/opencv4/opencv2/dnn/version.hpp
 opencv2/dnn/dict.hpp
@@ -370,6 +374,8 @@ opencv2/dnn/dict.hpp
 opencv2/dnn/layer.hpp
 -
 opencv2/dnn/dnn.inl.hpp
+-
+opencv2/dnn/utils/inference_engine.hpp
 -
 
 /usr/local/include/opencv4/opencv2/dnn/dnn.inl.hpp
@@ -379,6 +385,10 @@ opencv2/dnn.hpp
 /usr/local/include/opencv4/opencv2/dnn/layer.hpp
 opencv2/dnn.hpp
 -
+
+/usr/local/include/opencv4/opencv2/dnn/utils/inference_engine.hpp
+../dnn.hpp
+/usr/local/include/opencv4/opencv2/dnn/dnn.hpp
 
 /usr/local/include/opencv4/opencv2/dnn/version.hpp
 
