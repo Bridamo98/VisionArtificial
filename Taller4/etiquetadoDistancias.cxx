@@ -24,8 +24,8 @@ void revisarVecinos(Coord aux, queue<Coord> &cola, Mat &intermedia, Mat image,
 	 map<int, int> &mapa, int contador, int &contadorPixeles);
 bool verificar(Coord vecino, int prom, int t, Mat image, Mat intermedia);
 Mat generarRest(Mat image, Mat intermedia);
-Mat descarteDeRegiones(Mat &intermedia,map<int,int >mapa);
-void ajusteDeIntensidades(Mat &intermedia, int cantRegiones);
+void descarteDeRegiones(Mat &intermedia,map<int,int >mapa);
+Mat ajusteDeIntensidades( Mat intermedia, int cantRegiones);
 
 int main(int argc, char** argv )
 {
@@ -69,13 +69,17 @@ int main(int argc, char** argv )
 
 	descarteDeRegiones(intermedia,mapa);
 
-	ajusteDeIntensidades(intermedia, mapa.size());
+
+	Mat ajustada;
+	ajustada = ajusteDeIntensidades(intermedia, mapa.size());
+
+	//resalta=resaltarBlanco(intermedia);
 
 	Mat dist;
-    distanceTransform(intermedia, dist, DIST_L2, 3);//toca corregir esto NO ES INTERMEDIA
+    distanceTransform(image, dist, DIST_L2, 3);//toca corregir esto NO ES INTERMEDIA
 
 
-	imwrite( basename + "_intermedia.png", intermedia );
+	imwrite( basename + "_ajustada.png", ajustada );
 	imwrite( basename + "_dist.png", dist );
 
 	//imwrite( basename + "_regiones.png", generarRest(image, intermedia) );
@@ -115,7 +119,7 @@ Mat etiquetado(Mat image, String basename, map<int,int> &mapa){
 	return (intermedia);
 }
 
-Mat descarteDeRegiones(Mat &intermedia, map<int,int> mapa){
+void descarteDeRegiones(Mat &intermedia, map<int,int> mapa){
 	int maxCant=-1;
 	for (auto itr = mapa.begin(); itr != mapa.end(); ++itr) {
 		 //cout<<"itr->first "<<itr->second<<endl;
@@ -143,14 +147,16 @@ Mat descarteDeRegiones(Mat &intermedia, map<int,int> mapa){
 
 }
 
-void ajusteDeIntensidades(Mat &intermedia, int cantRegiones){
+Mat ajusteDeIntensidades(Mat intermedia, int cantRegiones){
 
+	Mat ajustada = Mat::zeros( intermedia.size( ), CV_8UC1 );
 	int factorDiferencial = floor(255/cantRegiones);
 	for (int i = 0; i < intermedia.rows; i++) {
 		for (int j = 0; j < intermedia.cols; j++) {
-			intermedia.at<uchar>(i, j)=intermedia.at<uchar>(i, j)*((uchar)(factorDiferencial));
+			ajustada.at<uchar>(i, j)=intermedia.at<uchar>(i, j)*((uchar)(factorDiferencial));
 		}
 	}
+	return ajustada;
 }
 
 int promedio(Coord coord, Mat image){
