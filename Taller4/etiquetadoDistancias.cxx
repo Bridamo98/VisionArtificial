@@ -19,13 +19,11 @@ struct Coord {
 };
 
 Mat etiquetado(Mat image, String basename,map<int,int> &mapa);
-int promedio(Coord coord, Mat image);
 void revisarVecinos(Coord aux, queue<Coord> &cola, Mat &intermedia, Mat image,
-	 map<int, int> &mapa, int contador, int &contadorPixeles);
-bool verificar(Coord vecino, int prom, int t, Mat image, Mat intermedia);
-Mat generarRest(Mat image, Mat intermedia);
-void descarteDeRegiones(Mat &intermedia,map<int,int >mapa);
+                    map<int, int> &mapa, int contador, int &contadorPixeles);
+void descarteDeRegiones(Mat &intermedia,map<int,int > &mapa,Mat &image);
 Mat ajusteDeIntensidades( Mat intermedia, int cantRegiones);
+void centros(Mat dist, Mat intermedia, map<int, int> mapa);
 
 int main(int argc, char** argv )
 {
@@ -61,28 +59,26 @@ int main(int argc, char** argv )
 
 	map<int,int> mapa;//contiene el numero de la region y la cantidad de pixeles que la componen
 
-	cout<<"Luego del etiquetado se tienen las siguientes regiones: "<<endl;	
+	cout<<"Luego del etiquetado se tienen las siguientes regiones: "<<endl;
 
 	intermedia = etiquetado(image, basename, mapa);
 
 	cout<<"Luego del descarte se tienen las siguientes regiones: "<<endl;
 
-	descarteDeRegiones(intermedia,mapa);
-
+	descarteDeRegiones(intermedia,mapa,image);
 
 	Mat ajustada;
 	ajustada = ajusteDeIntensidades(intermedia, mapa.size());
 
-	//resalta=resaltarBlanco(intermedia);
-
 	Mat dist;
-    distanceTransform(image, dist, DIST_L2, 3);//toca corregir esto NO ES INTERMEDIA
+	distanceTransform(image, dist, DIST_L2, 3);  //toca corregir esto NO ES INTERMEDIA
 
+	cout << "Los centros de las regiones son: " << endl;
+
+	centros(dist, intermedia, mapa);
 
 	imwrite( basename + "_ajustada.png", ajustada );
 	imwrite( basename + "_dist.png", dist );
-
-	//imwrite( basename + "_regiones.png", generarRest(image, intermedia) );
 
 	return( 0 );
 }
@@ -97,7 +93,7 @@ Mat etiquetado(Mat image, String basename, map<int,int> &mapa){
 	Mat rest = Mat::zeros( image.size( ), CV_8UC1 );
 	for (int i = 0; i < image.rows; i++) {
 		for (int j = 0; j < image.cols; j++) {
-			if(image.at<uchar>(i, j) == 0 && intermedia.at<uchar>(i, j) == 0){//cambie 255 por 0 y agregue la condicion de intermedia
+			if(image.at<uchar>(i, j) == 255 && intermedia.at<uchar>(i, j) == 0) {//cambie 255 por 0 y agregue la condicion de intermedia
 				intermedia.at<uchar>(i, j) = contador;
 				aux.x = i;
 				aux.y = j;
@@ -110,7 +106,7 @@ Mat etiquetado(Mat image, String basename, map<int,int> &mapa){
 				}
 				cout<<"Para la region ("<<contador<<") se reconocieron ("<<contadorPixeles<<") pixeles"<<endl;
 				mapa.insert({ contador, contadorPixeles });
-				contadorPixeles=0; 
+				contadorPixeles=0;
 				contador++;
 			}
 		}
@@ -119,31 +115,33 @@ Mat etiquetado(Mat image, String basename, map<int,int> &mapa){
 	return (intermedia);
 }
 
-void descarteDeRegiones(Mat &intermedia, map<int,int> mapa){
+void descarteDeRegiones(Mat &intermedia, map<int,int> &mapa, Mat &image){
 	int maxCant=-1;
 	for (auto itr = mapa.begin(); itr != mapa.end(); ++itr) {
-		 //cout<<"itr->first "<<itr->second<<endl;
-         if(itr->second > maxCant){
-         	maxCant = itr->second;
-         }
-    }
-    //cout<<"maxCant"<<(double)(maxCant*0.15)<<endl;
-    
+		if(itr->second > maxCant) {
+			maxCant = itr->second;
+		}
+	}
 
-    for (int i = 0; i < intermedia.rows; i++) {
+	for (int i = 0; i < intermedia.rows; i++) {
 		for (int j = 0; j < intermedia.cols; j++) {
 			auto it=mapa.find((int)(intermedia.at<uchar>(i, j)));
-			if((double)(it->second) <= (double)(maxCant*0.15) && intermedia.at<uchar>(i, j) != 0){
+			if((double)(it->second) <= (double)(maxCant*0.15) && intermedia.at<uchar>(i, j) != 0
+			   && it != mapa.end()) {
+				if(it->second != 0) {
+					mapa.erase(it);
+					mapa.insert({ (int)(intermedia.at<uchar>(i, j)), 0 });
+				}
 				intermedia.at<uchar>(i, j)=0;
-				cout<<"entra"<<endl;
-				mapa.erase(it);
+				image.at<uchar>(i, j)=0;
 			}
 		}
 	}
 
 	for (auto itr = mapa.begin(); itr != mapa.end(); ++itr) {
-		cout<<"Para la region ("<<itr->first<<") se reconocieron ("<<itr->second<<") pixeles"<<endl;
-    }
+		if(itr->second > 0)
+			cout<<"Para la region ("<<itr->first<<") se reconocieron ("<<itr->second<<") pixeles"<<endl;
+	}
 
 }
 
@@ -159,38 +157,16 @@ Mat ajusteDeIntensidades(Mat intermedia, int cantRegiones){
 	return ajustada;
 }
 
-int promedio(Coord coord, Mat image){
-	Coord vecino;
-	int prom = 0, contador = 0;
-
-	for (int i = -1; i < 2; i++) {
-		for (int j = -1; j < 2; j++) {
-			vecino.x = coord.x+i;
-			vecino.y = coord.y+j;
-			if(vecino.x > -1 && vecino.y > -1 && vecino.x < image.rows && vecino.y < image.cols) {
-				prom = prom + (int)image.at<uchar>(vecino.x, vecino.y);
-				contador++;
-			}
-		}
-	}
-	if(coord.x > -1 && coord.y > -1 && coord.x < image.rows && coord.y < image.cols) {
-		prom = prom - (int)image.at<uchar>(coord.x, coord.y);
-		return (prom/(contador-1));
-	}else{
-		return (prom/contador);
-	}
-}
-
 void revisarVecinos(Coord aux, queue<Coord> &cola, Mat &intermedia, Mat image,
-	 map<int, int> &mapa, int contador, int &contadorPixeles){
+                    map<int, int> &mapa, int contador, int &contadorPixeles){
 	Coord vecino;
 
 	for (int i = -1; i < 2; i++) {
 		for (int j = -1; j < 2; j++) {
 			vecino.x = aux.x+i;
 			vecino.y = aux.y+j;
-
-			if(intermedia.at<uchar>(vecino.x, vecino.y) == 0 && image.at<uchar>(vecino.x, vecino.y) == 0) {//cambie 255 por 0 y agregue condicion de image, corregí las coordenadas(vecino)
+			if(vecino.x > -1 && vecino.y > -1 && vecino.x < image.rows && vecino.y < image.cols &&
+			   intermedia.at<uchar>(vecino.x, vecino.y) == 0 && image.at<uchar>(vecino.x, vecino.y) == 255) {//cambie 255 por 0 y agregue condicion de image, corregí las coordenadas(vecino)
 				cola.push(vecino);
 				contadorPixeles++;
 				intermedia.at<uchar>(vecino.x, vecino.y) = contador;
@@ -199,30 +175,40 @@ void revisarVecinos(Coord aux, queue<Coord> &cola, Mat &intermedia, Mat image,
 	}
 }
 
-bool verificar(Coord vecino, int prom, int t, Mat image, Mat intermedia){
-	int calculo;
-	//calculo = prom - (int)image.at<uchar>(vecino.x, vecino.y);
-	calculo = prom - promedio(vecino, image);
-	if(calculo < 0)
-		calculo = calculo*(-1);
+void centros(Mat dist, Mat intermedia, map<int, int> mapa){
+	map<int, Coord> mapaCentros;
 
-	if(vecino.x > -1 && vecino.y > -1 && vecino.x < image.rows && vecino.y < image.cols) {
-		if(((int)intermedia.at<uchar>(vecino.x, vecino.y) == 0) && (calculo < t)) {
-			return true;
-		}
-	}
-	return false;
-}
+	for (map<int,int>::iterator it=mapa.begin(); it!=mapa.end(); ++it) {
+		if(it->second > 0) {
+			int max = -1;
+			int promF = 0, promC = 0;
+			int count = 0;
+			Coord coord;
 
-Mat generarRest(Mat image, Mat intermedia){
-	Mat rest = Mat::zeros( image.size(), CV_8UC3 );
-
-	for (int i = 0; i < image.rows; i++) {
-		for (int j = 0; j < image.cols; j++) {
-			if((int)intermedia.at<uchar>(i, j) == 255) {
-				rest.at<Vec3b>(i, j) = image.at<Vec3b>(i, j);
+			for (int i = 0; i < intermedia.rows; i++) {
+				for (int j = 0; j < intermedia.cols; j++) {
+					if((int)(intermedia.at<uchar>(i, j)) == it->first) {
+						if((int)(dist.at<uchar>(i, j)) > max) {
+							max = (int)(dist.at<uchar>(i, j));
+							promF = i;
+							promC = j;
+							count = 1;
+						}else if((int)(dist.at<uchar>(i, j)) == max) {
+							promF = promF+i;
+							promC = promC+j;
+							count++;
+						}
+					}
+				}
 			}
+			coord.x = promC/count;
+			coord.y = promF/count;
+			mapaCentros.insert({it->first, coord});
 		}
 	}
-	return rest;
+
+	for (map<int,Coord>::iterator it=mapaCentros.begin(); it!=mapaCentros.end(); ++it) {
+		cout << "Para la region " << it->first << " el centro está en la fila "
+		     << it->second.x << " columna " << it->second.y << endl;
+	}
 }
