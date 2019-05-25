@@ -55,8 +55,15 @@ void revisarVecinos(Coord aux, queue<Coord> &cola, Mat &intermedia, Mat image,
 void descarteDeRegiones(Mat &intermedia,map<int,int > &mapa,Mat &image);
 Mat ajusteDeIntensidades( Mat intermedia, int cantRegiones);
 void centros(Mat dist, Mat intermedia, map<int, int> mapa, Mat image);
-int calificarDif(Mat image, Mat plantilla);
-void comparar(int tam);
+float calificarDif(Mat image, Mat plantilla);
+void comparar(map<int,int> mapa);
+void mostrarImagen(Mat image, int num){
+	String s = to_string(num);
+	namedWindow("Window " + s, WINDOW_NORMAL);
+	imshow("Window " + s, image);
+	waitKey(0);
+}
+
 
 int main(int argc, char** argv )
 {
@@ -138,7 +145,7 @@ int main(int argc, char** argv )
 	imwrite( basename + "_dist.png", dist );
 
 	//segmentacion(res_img, 0, res_img.rows, 0, res_img.cols);
-	comparar(mapa.size());
+	comparar(mapa);
 
 	//Escribir imagen
 	imwrite( basename + "_resultado.png", res_img );
@@ -198,48 +205,59 @@ Mat binarizacion(Mat image){
 }
 */
 
-void comparar(int tam){
-	int conincidencia[tam][2];
+void comparar(map<int,int> mapa){
+	int tam=mapa.size();
+	float conincidencia[tam][2];
 	Mat image, plantilla;
-	int aux;
-
-	for (size_t i = 0; i < tam; i++) {
-		conincidencia[i][0] = -1;
+	float aux;
+	int cont=0;
+	
+	for (int i = 0; i < tam; i++) {
+		conincidencia[i][0] = -1.0;
 	}
-
-	for (size_t i = 0; i < tam; i++) {
-		image = imread( to_string(i) + "_resultado.png", IMREAD_GRAYSCALE );
-		for (size_t j = 0; j < 27; j++) {
-			Mat res_img;
-			plantilla = imread( to_string(j) + "_plantilla.png", IMREAD_GRAYSCALE );
-			resize(image, plantilla, Size(), 0.5, 0.5, INTER_LINEAR);
-			aux = calificarDif(res_img, plantilla);
-			if(aux > conincidencia[i][0]){
-				conincidencia[i][0] = aux;
-				conincidencia[i][1] = j;
+	cout << "tam="<<tam<<endl;
+	for (int i = 0; i < tam; i++) {
+		conincidencia[i][1] = -1.0;
+		
+		auto it=mapa.find(i+1);
+		if(it->second != 0){
+			image = imread( to_string(cont) + "_resultado.png", 1 );
+			
+			cout << "-----"<<cont<<endl;
+			cont++;
+			for (int j = 0; j < 28; j++) {
+				Mat res_img;
+				plantilla = imread( to_string(j) + "_plantilla.png", IMREAD_GRAYSCALE );
+				mostrarImagen(plantilla,1);
+				resize(image, res_img, Size(),(double)(plantilla.rows)/image.rows,(double)(plantilla.rows)/image.rows, INTER_LINEAR);
+				aux = calificarDif(res_img, plantilla);
+				if(aux > conincidencia[i][0]){
+					conincidencia[i][0] = aux;
+					conincidencia[i][1] = (float)(j);
+				}
 			}
 		}
 	}
-
-	for (size_t i = 0; i < tam; i++) {
+	for (int i = 0; i < tam; i++) {
 		cout << "Coincidencia " << conincidencia[i][1] << endl;
 	}
 }
-
-int calificarDif(Mat image, Mat plantilla){
-	int rest = 0;
-  for (size_t i = 0; i < image.rows; i++)
-  {
-      for (size_t j = 0; j < image.cols; j++)
-      {
-				if(image.at<uchar>(i, j) == plantilla.at<uchar>(i, j)){
-					rest++;
-				}
-      }
-  }
+float calificarDif(Mat image, Mat plantilla){
+	float rest = 0;
+	for (size_t i = 0; i < image.rows; i++)
+	{
+	    for (size_t j = 0; j < image.cols; j++)
+	    {
+			if(image.at<uchar>(i, j) =! 0 && plantilla.at<uchar>(i, j) !=0){
+				rest+=1.0;
+			}
+			if((image.at<uchar>(i, j) == 0 && plantilla.at<uchar>(i, j) !=0)||(image.at<uchar>(i, j) != 0 && plantilla.at<uchar>(i, j) ==0)){
+				rest-=0.5;
+			}
+	      }
+	}
 	return(rest);
 }
-
 Mat filtro(Mat image, int kernelSize){
 	Mat dst, kernel;
 	Point anchor;
