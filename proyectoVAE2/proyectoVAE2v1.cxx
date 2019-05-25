@@ -1,12 +1,35 @@
 #include <stdio.h>
-#include <opencv2/opencv.hpp>
 #include <map>
 #include <sstream>
+#include <iostream>
+#include <cstdlib>
+#include <queue>
+#include <stdlib.h>
+#include <time.h>
+#include <unistd.h>
+#include <iterator>
+#include <map>
+#include <math.h>
+#include <opencv2/opencv.hpp>
 #include <opencv2/highgui/highgui.hpp>
 #include <opencv2/imgproc/imgproc.hpp>
+#include "opencv2/highgui/highgui.hpp"
+#include "opencv2/imgproc/imgproc.hpp"
 
 using namespace cv;
 using namespace std;
+
+struct Coord {
+	int x;
+	int y;
+};
+
+struct Bordes {
+	int sf;
+	int inf;
+	int sc;
+	int ic;
+};
 
 const int bits = 1;
 const int kernelSize = 15;
@@ -26,6 +49,14 @@ void crearMatriz(Mat image, int supf, int inff, int supc, int infc, int ident);
 float analisis(Mat image, map<int,int> histogram, int val);
 Mat ecualizacion(Mat src);
 Mat blancoNegro(Mat restoreImg);
+Mat etiquetado(Mat image, String basename,map<int,int> &mapa);
+void revisarVecinos(Coord aux, queue<Coord> &cola, Mat &intermedia, Mat image,
+                    map<int, int> &mapa, int contador, int &contadorPixeles);
+void descarteDeRegiones(Mat &intermedia,map<int,int > &mapa,Mat &image);
+Mat ajusteDeIntensidades( Mat intermedia, int cantRegiones);
+void centros(Mat dist, Mat intermedia, map<int, int> mapa, Mat image);
+int calificarDif(Mat image, Mat plantilla);
+void comparar(int tam);
 
 int main(int argc, char** argv )
 {
@@ -55,24 +86,35 @@ int main(int argc, char** argv )
 	cout << "rows: " << image.rows << endl;
 	cout << "columns: " << image.cols << endl;
 
+	stringstream ss( argv[ 1 ] );
+	string basename;
+	getline( ss, basename, '.' );
+
 	//Tratamiento de imagen
 	//Binarización
-  Mat res_img, kernel;
+  Mat res_img, kernel, intermedia;
+	map<int,int> mapa;
 
   int thres = 180, max = 255;
   res_img = blancoNegro(image);
-  //cvtColor(image, gray, COLOR_BGR2GRAY);
+  //cvtColor(image, res_img, COLOR_BGR2GRAY);
 
   threshold(res_img, res_img, thres, max, 2);
 
 	threshold(res_img, res_img, 177, 255, THRESH_OTSU);
+	//adaptiveThreshold(res_img, res_img, 177, ADAPTIVE_THRESH_GAUSSIAN_C, THRESH_BINARY, 3, 2);
 
 	//res_img = binarizacion(res_img);
 
 	kernel = getStructuringElement(MORPH_ELLIPSE, Size(5, 5));
   erode(res_img, res_img, kernel);
 	dilate(res_img, res_img, kernel);
+	//dilate(res_img, res_img, kernel);
+	erode(res_img, res_img, kernel);
+	erode(res_img, res_img, kernel);
+	erode(res_img, res_img, kernel);
 
+	//GaussianBlur(res_img, res_img, Size(33, 33), 0);
 	GaussianBlur(res_img, res_img, Size(11, 11), 0);
 	GaussianBlur(res_img, res_img, Size(11, 11), 0);
 
@@ -82,14 +124,23 @@ int main(int argc, char** argv )
 	//Segmentación
 	res_img = resaltarTableroFilas(res_img);
 	res_img = resaltarTableroColumnas(res_img);
+	threshold(res_img, res_img, 177, 255, THRESH_BINARY_INV);
 
-	segmentacion(res_img, 0, res_img.rows, 0, res_img.cols);
+	intermedia = etiquetado(res_img, basename, mapa);
+	descarteDeRegiones(intermedia,mapa,res_img);
+	Mat ajustada;
+	ajustada = ajusteDeIntensidades(intermedia, mapa.size());
+	Mat dist;
+	distanceTransform(res_img, dist, DIST_L2, 3);
+	centros(dist, intermedia, mapa, ajustada);
+
+	imwrite( basename + "_ajustada.png", ajustada );
+	imwrite( basename + "_dist.png", dist );
+
+	//segmentacion(res_img, 0, res_img.rows, 0, res_img.cols);
+	comparar(mapa.size());
 
 	//Escribir imagen
-	stringstream ss( argv[ 1 ] );
-	string basename;
-	getline( ss, basename, '.' );
-
 	imwrite( basename + "_resultado.png", res_img );
 
 	return( 0 );
@@ -146,6 +197,48 @@ Mat binarizacion(Mat image){
 	return(grey);
 }
 */
+
+void comparar(int tam){
+	int conincidencia[tam][2];
+	Mat image, plantilla;
+	int aux;
+
+	for (size_t i = 0; i < tam; i++) {
+		conincidencia[i][0] = -1;
+	}
+
+	for (size_t i = 0; i < tam; i++) {
+		image = imread( to_string(i) + "_resultado.png", IMREAD_GRAYSCALE );
+		for (size_t j = 0; j < 27; j++) {
+			Mat res_img;
+			plantilla = imread( to_string(j) + "_plantilla.png", IMREAD_GRAYSCALE );
+			resize(image, plantilla, Size(), 0.5, 0.5, INTER_LINEAR);
+			aux = calificarDif(res_img, plantilla);
+			if(aux > conincidencia[i][0]){
+				conincidencia[i][0] = aux;
+				conincidencia[i][1] = j;
+			}
+		}
+	}
+
+	for (size_t i = 0; i < tam; i++) {
+		cout << "Coincidencia " << conincidencia[i][1] << endl;
+	}
+}
+
+int calificarDif(Mat image, Mat plantilla){
+	int rest = 0;
+  for (size_t i = 0; i < image.rows; i++)
+  {
+      for (size_t j = 0; j < image.cols; j++)
+      {
+				if(image.at<uchar>(i, j) == plantilla.at<uchar>(i, j)){
+					rest++;
+				}
+      }
+  }
+	return(rest);
+}
 
 Mat filtro(Mat image, int kernelSize){
 	Mat dst, kernel;
@@ -370,6 +463,7 @@ void crearMatriz(Mat image, int supf, int inff, int supc, int infc, int ident){
 		jj = 0;
 		ii++;
 	}
+	IDe++;
 	imwrite( to_string(ident) + "_resultado.png", resimg);
 }
 
@@ -509,4 +603,158 @@ Mat blancoNegro(Mat restoreImg){
       }
   }
   return(dif);
+}
+
+Mat etiquetado(Mat image, String basename, map<int,int> &mapa){
+	unsigned int cantidad;
+	queue<Coord> cola;
+	int contador = 1;
+	int contadorPixeles = 0;
+	Coord aux;
+	Mat intermedia = Mat::zeros( image.size( ), CV_8UC1 );
+	Mat rest = Mat::zeros( image.size( ), CV_8UC1 );
+	for (int i = 0; i < image.rows; i++) {
+		for (int j = 0; j < image.cols; j++) {
+			if(image.at<uchar>(i, j) == 255 && intermedia.at<uchar>(i, j) == 0) {//cambie 255 por 0 y agregue la condicion de intermedia
+				intermedia.at<uchar>(i, j) = contador;
+				aux.x = i;
+				aux.y = j;
+				cola.push(aux);
+				contadorPixeles++;
+				while (!cola.empty()) {
+					aux = cola.front();
+					cola.pop();
+					revisarVecinos(aux, cola, intermedia, image, mapa, contador, contadorPixeles);
+				}
+				cout<<"Para la region ("<<contador<<") se reconocieron ("<<contadorPixeles<<") pixeles"<<endl;
+				mapa.insert({ contador, contadorPixeles });
+				contadorPixeles=0;
+				contador++;
+			}
+		}
+	}
+
+	return (intermedia);
+}
+
+void descarteDeRegiones(Mat &intermedia, map<int,int> &mapa, Mat &image){
+	int maxCant=image.rows*image.cols;
+	/*
+	for (auto itr = mapa.begin(); itr != mapa.end(); ++itr) {
+		if(itr->second > maxCant) {
+			maxCant = itr->second;
+		}
+	}*/
+
+	for (int i = 0; i < intermedia.rows; i++) {
+		for (int j = 0; j < intermedia.cols; j++) {
+			auto it=mapa.find((int)(intermedia.at<uchar>(i, j)));
+			if((double)(it->second) <= (double)(maxCant*0.0003) && intermedia.at<uchar>(i, j) != 0
+			   && it != mapa.end()) {
+				if(it->second != 0) {
+					mapa.erase(it);
+					mapa.insert({ (int)(intermedia.at<uchar>(i, j)), 0 });
+				}
+				intermedia.at<uchar>(i, j)=0;
+				image.at<uchar>(i, j)=0;
+			}
+		}
+	}
+
+	for (auto itr = mapa.begin(); itr != mapa.end(); ++itr) {
+		if(itr->second > 0)
+			cout<<"Para la region ("<<itr->first<<") se reconocieron ("<<itr->second<<") pixeles"<<endl;
+	}
+
+}
+
+Mat ajusteDeIntensidades(Mat intermedia, int cantRegiones){
+
+	Mat ajustada = Mat::zeros( intermedia.size( ), CV_8UC1 );
+	int factorDiferencial = floor(255/cantRegiones);
+	for (int i = 0; i < intermedia.rows; i++) {
+		for (int j = 0; j < intermedia.cols; j++) {
+			ajustada.at<uchar>(i, j)=intermedia.at<uchar>(i, j)*((uchar)(factorDiferencial));
+		}
+	}
+	return ajustada;
+}
+
+void revisarVecinos(Coord aux, queue<Coord> &cola, Mat &intermedia, Mat image,
+                    map<int, int> &mapa, int contador, int &contadorPixeles){
+	Coord vecino;
+
+	for (int i = -1; i < 2; i++) {
+		for (int j = -1; j < 2; j++) {
+			vecino.x = aux.x+i;
+			vecino.y = aux.y+j;
+			if(vecino.x > -1 && vecino.y > -1 && vecino.x < image.rows && vecino.y < image.cols &&
+			   intermedia.at<uchar>(vecino.x, vecino.y) == 0 && image.at<uchar>(vecino.x, vecino.y) == 255) {//cambie 255 por 0 y agregue condicion de image, corregí las coordenadas(vecino)
+				cola.push(vecino);
+				contadorPixeles++;
+				intermedia.at<uchar>(vecino.x, vecino.y) = contador;
+			}
+		}
+	}
+}
+
+void centros(Mat dist, Mat intermedia, map<int, int> mapa, Mat image){
+	map<int, Coord> mapaCentros;
+	map<int, Bordes> mapaBordes;
+
+	for (map<int,int>::iterator it=mapa.begin(); it!=mapa.end(); ++it) {
+		if(it->second > 0) {
+			int max = -1;
+			int promF = 0, promC = 0;
+			int count = 0;
+			Coord coord;
+			int mini = 99999, maxi = -1;
+			int minj = 99999, maxj = -1;
+
+			for (int i = 0; i < intermedia.rows; i++) {
+				for (int j = 0; j < intermedia.cols; j++) {
+					if((int)(intermedia.at<uchar>(i, j)) == it->first) {
+						if(i > maxi){
+							maxi = i;
+						}else if(i < mini){
+							mini = i;
+						}
+						if(j > maxj){
+							maxj = j;
+						}else if(j < minj){
+							minj = j;
+						}
+						if((int)(dist.at<uchar>(i, j)) > max) {
+							max = (int)(dist.at<uchar>(i, j));
+							promF = i;
+							promC = j;
+							count = 1;
+						}else if((int)(dist.at<uchar>(i, j)) == max) {
+							promF = promF+i;
+							promC = promC+j;
+							count++;
+						}
+					}
+				}
+			}
+			Bordes bordes;
+			bordes.sf = mini;
+			bordes.inf = maxi;
+			bordes.sc = minj;
+			bordes.ic = maxj;
+			coord.x = promC/count;
+			coord.y = promF/count;
+			mapaCentros.insert({it->first, coord});
+			mapaBordes.insert({it->first, bordes});
+		}
+	}
+/*
+	for (map<int,Coord>::iterator it=mapaCentros.begin(); it!=mapaCentros.end(); ++it) {
+		cout << "Para la region " << it->first << " el centro está en la fila "
+		     << it->second.x << " columna " << it->second.y << endl;
+	}*/
+
+		for (map<int,Bordes>::iterator it=mapaBordes.begin(); it!=mapaBordes.end(); ++it) {
+			crearMatriz(image, it->second.sf, it->second.inf, it->second.sc, it->second.ic, IDe);
+		}
 }
