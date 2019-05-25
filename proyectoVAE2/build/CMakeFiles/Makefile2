@@ -54,10 +54,10 @@ RM = /usr/bin/cmake -E remove -f
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /home/briam-agudelo/Escritorio/VisionArtificial/proyectoVAE2
+CMAKE_SOURCE_DIR = /home/brandonn/Documentos/visionArtificial/proyecto/VisionArtificial/proyectoVAE2
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /home/briam-agudelo/Escritorio/VisionArtificial/proyectoVAE2/build
+CMAKE_BINARY_DIR = /home/brandonn/Documentos/visionArtificial/proyecto/VisionArtificial/proyectoVAE2/build
 
 #=============================================================================
 # Target rules for target CMakeFiles/proyectoVAE2v1.dir
@@ -66,7 +66,7 @@ CMAKE_BINARY_DIR = /home/briam-agudelo/Escritorio/VisionArtificial/proyectoVAE2/
 CMakeFiles/proyectoVAE2v1.dir/all:
 	$(MAKE) -f CMakeFiles/proyectoVAE2v1.dir/build.make CMakeFiles/proyectoVAE2v1.dir/depend
 	$(MAKE) -f CMakeFiles/proyectoVAE2v1.dir/build.make CMakeFiles/proyectoVAE2v1.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/briam-agudelo/Escritorio/VisionArtificial/proyectoVAE2/build/CMakeFiles --progress-num=1,2 "Built target proyectoVAE2v1"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/brandonn/Documentos/visionArtificial/proyecto/VisionArtificial/proyectoVAE2/build/CMakeFiles --progress-num=1,2 "Built target proyectoVAE2v1"
 .PHONY : CMakeFiles/proyectoVAE2v1.dir/all
 
 # Include target in all.
@@ -76,9 +76,9 @@ all: CMakeFiles/proyectoVAE2v1.dir/all
 
 # Build rule for subdir invocation for target.
 CMakeFiles/proyectoVAE2v1.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/briam-agudelo/Escritorio/VisionArtificial/proyectoVAE2/build/CMakeFiles 2
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/brandonn/Documentos/visionArtificial/proyecto/VisionArtificial/proyectoVAE2/build/CMakeFiles 2
 	$(MAKE) -f CMakeFiles/Makefile2 CMakeFiles/proyectoVAE2v1.dir/all
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/briam-agudelo/Escritorio/VisionArtificial/proyectoVAE2/build/CMakeFiles 0
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/brandonn/Documentos/visionArtificial/proyecto/VisionArtificial/proyectoVAE2/build/CMakeFiles 0
 .PHONY : CMakeFiles/proyectoVAE2v1.dir/rule
 
 # Convenience name for target.

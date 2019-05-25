@@ -1,4 +1,4 @@
-The system is: Linux - 4.15.0-20-generic - x86_64
+The system is: Linux - 4.15.0-50-generic - x86_64
 Compiling the C compiler identification source file "CMakeCCompilerId.c" succeeded.
 Compiler: /usr/bin/cc 
 Build flags: 
@@ -10,7 +10,7 @@ The output was:
 
 Compilation of the C compiler identification source "CMakeCCompilerId.c" produced "a.out"
 
-The C compiler identification is GNU, found in "/home/briam-agudelo/Escritorio/VisionArtificial/proyectoVAE2/build/CMakeFiles/3.10.2/CompilerIdC/a.out"
+The C compiler identification is GNU, found in "/home/brandonn/Documentos/visionArtificial/proyecto/VisionArtificial/proyectoVAE2/build/CMakeFiles/3.10.2/CompilerIdC/a.out"
 
 Compiling the CXX compiler identification source file "CMakeCXXCompilerId.cpp" succeeded.
 Compiler: /usr/bin/c++ 
@@ -23,33 +23,33 @@ The output was:
 
 Compilation of the CXX compiler identification source "CMakeCXXCompilerId.cpp" produced "a.out"
 
-The CXX compiler identification is GNU, found in "/home/briam-agudelo/Escritorio/VisionArtificial/proyectoVAE2/build/CMakeFiles/3.10.2/CompilerIdCXX/a.out"
+The CXX compiler identification is GNU, found in "/home/brandonn/Documentos/visionArtificial/proyecto/VisionArtificial/proyectoVAE2/build/CMakeFiles/3.10.2/CompilerIdCXX/a.out"
 
 Determining if the C compiler works passed with the following output:
-Change Dir: /home/briam-agudelo/Escritorio/VisionArtificial/proyectoVAE2/build/CMakeFiles/CMakeTmp
+Change Dir: /home/brandonn/Documentos/visionArtificial/proyecto/VisionArtificial/proyectoVAE2/build/CMakeFiles/CMakeTmp
 
-Run Build Command:"/usr/bin/make" "cmTC_b2293/fast"
-/usr/bin/make -f CMakeFiles/cmTC_b2293.dir/build.make CMakeFiles/cmTC_b2293.dir/build
-make[1]: se entra en el directorio '/home/briam-agudelo/Escritorio/VisionArtificial/proyectoVAE2/build/CMakeFiles/CMakeTmp'
-Building C object CMakeFiles/cmTC_b2293.dir/testCCompiler.c.o
-/usr/bin/cc    -o CMakeFiles/cmTC_b2293.dir/testCCompiler.c.o   -c /home/briam-agudelo/Escritorio/VisionArtificial/proyectoVAE2/build/CMakeFiles/CMakeTmp/testCCompiler.c
-Linking C executable cmTC_b2293
-/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_b2293.dir/link.txt --verbose=1
-/usr/bin/cc      -rdynamic CMakeFiles/cmTC_b2293.dir/testCCompiler.c.o  -o cmTC_b2293 
-make[1]: se sale del directorio '/home/briam-agudelo/Escritorio/VisionArtificial/proyectoVAE2/build/CMakeFiles/CMakeTmp'
+Run Build Command:"/usr/bin/make" "cmTC_778a0/fast"
+/usr/bin/make -f CMakeFiles/cmTC_778a0.dir/build.make CMakeFiles/cmTC_778a0.dir/build
+make[1]: se entra en el directorio '/home/brandonn/Documentos/visionArtificial/proyecto/VisionArtificial/proyectoVAE2/build/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_778a0.dir/testCCompiler.c.o
+/usr/bin/cc    -o CMakeFiles/cmTC_778a0.dir/testCCompiler.c.o   -c /home/brandonn/Documentos/visionArtificial/proyecto/VisionArtificial/proyectoVAE2/build/CMakeFiles/CMakeTmp/testCCompiler.c
+Linking C executable cmTC_778a0
+/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_778a0.dir/link.txt --verbose=1
+/usr/bin/cc      -rdynamic CMakeFiles/cmTC_778a0.dir/testCCompiler.c.o  -o cmTC_778a0 
+make[1]: se sale del directorio '/home/brandonn/Documentos/visionArtificial/proyecto/VisionArtificial/proyectoVAE2/build/CMakeFiles/CMakeTmp'
 
 
 Detecting C compiler ABI info compiled with the following output:
-Change Dir: /home/briam-agudelo/Escritorio/VisionArtificial/proyectoVAE2/build/CMakeFiles/CMakeTmp
+Change Dir: /home/brandonn/Documentos/visionArtificial/proyecto/VisionArtificial/proyectoVAE2/build/CMakeFiles/CMakeTmp
 
-Run Build Command:"/usr/bin/make" "cmTC_a3b43/fast"
-/usr/bin/make -f CMakeFiles/cmTC_a3b43.dir/build.make CMakeFiles/cmTC_a3b43.dir/build
-make[1]: se entra en el directorio '/home/briam-agudelo/Escritorio/VisionArtificial/proyectoVAE2/build/CMakeFiles/CMakeTmp'
-Building C object CMakeFiles/cmTC_a3b43.dir/CMakeCCompilerABI.c.o
-/usr/bin/cc    -o CMakeFiles/cmTC_a3b43.dir/CMakeCCompilerABI.c.o   -c /usr/share/cmake-3.10/Modules/CMakeCCompilerABI.c
-Linking C executable cmTC_a3b43
-/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_a3b43.dir/link.txt --verbose=1
-/usr/bin/cc     -v -rdynamic CMakeFiles/cmTC_a3b43.dir/CMakeCCompilerABI.c.o  -o cmTC_a3b43 
+Run Build Command:"/usr/bin/make" "cmTC_caa44/fast"
+/usr/bin/make -f CMakeFiles/cmTC_caa44.dir/build.make CMakeFiles/cmTC_caa44.dir/build
+make[1]: se entra en el directorio '/home/brandonn/Documentos/visionArtificial/proyecto/VisionArtificial/proyectoVAE2/build/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_caa44.dir/CMakeCCompilerABI.c.o
+/usr/bin/cc    -o CMakeFiles/cmTC_caa44.dir/CMakeCCompilerABI.c.o   -c /usr/share/cmake-3.10/Modules/CMakeCCompilerABI.c
+Linking C executable cmTC_caa44
+/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_caa44.dir/link.txt --verbose=1
+/usr/bin/cc     -v -rdynamic CMakeFiles/cmTC_caa44.dir/CMakeCCompilerABI.c.o  -o cmTC_caa44 
 Using built-in specs.
 COLLECT_GCC=/usr/bin/cc
 COLLECT_LTO_WRAPPER=/usr/lib/gcc/x86_64-linux-gnu/7/lto-wrapper
@@ -61,24 +61,24 @@ Thread model: posix
 gcc version 7.4.0 (Ubuntu 7.4.0-1ubuntu1~18.04) 
 COMPILER_PATH=/usr/lib/gcc/x86_64-linux-gnu/7/:/usr/lib/gcc/x86_64-linux-gnu/7/:/usr/lib/gcc/x86_64-linux-gnu/:/usr/lib/gcc/x86_64-linux-gnu/7/:/usr/lib/gcc/x86_64-linux-gnu/
 LIBRARY_PATH=/usr/lib/gcc/x86_64-linux-gnu/7/:/usr/lib/gcc/x86_64-linux-gnu/7/../../../x86_64-linux-gnu/:/usr/lib/gcc/x86_64-linux-gnu/7/../../../../lib/:/lib/x86_64-linux-gnu/:/lib/../lib/:/usr/lib/x86_64-linux-gnu/:/usr/lib/../lib/:/usr/lib/gcc/x86_64-linux-gnu/7/../../../:/lib/:/usr/lib/
-COLLECT_GCC_OPTIONS='-v' '-rdynamic' '-o' 'cmTC_a3b43' '-mtune=generic' '-march=x86-64'
- /usr/lib/gcc/x86_64-linux-gnu/7/collect2 -plugin /usr/lib/gcc/x86_64-linux-gnu/7/liblto_plugin.so -plugin-opt=/usr/lib/gcc/x86_64-linux-gnu/7/lto-wrapper -plugin-opt=-fresolution=/tmp/cchJYOh5.res -plugin-opt=-pass-through=-lgcc -plugin-opt=-pass-through=-lgcc_s -plugin-opt=-pass-through=-lc -plugin-opt=-pass-through=-lgcc -plugin-opt=-pass-through=-lgcc_s --sysroot=/ --build-id --eh-frame-hdr -m elf_x86_64 --hash-style=gnu --as-needed -export-dynamic -dynamic-linker /lib64/ld-linux-x86-64.so.2 -pie -z now -z relro -o cmTC_a3b43 /usr/lib/gcc/x86_64-linux-gnu/7/../../../x86_64-linux-gnu/Scrt1.o /usr/lib/gcc/x86_64-linux-gnu/7/../../../x86_64-linux-gnu/crti.o /usr/lib/gcc/x86_64-linux-gnu/7/crtbeginS.o -L/usr/lib/gcc/x86_64-linux-gnu/7 -L/usr/lib/gcc/x86_64-linux-gnu/7/../../../x86_64-linux-gnu -L/usr/lib/gcc/x86_64-linux-gnu/7/../../../../lib -L/lib/x86_64-linux-gnu -L/lib/../lib -L/usr/lib/x86_64-linux-gnu -L/usr/lib/../lib -L/usr/lib/gcc/x86_64-linux-gnu/7/../../.. CMakeFiles/cmTC_a3b43.dir/CMakeCCompilerABI.c.o -lgcc --push-state --as-needed -lgcc_s --pop-state -lc -lgcc --push-state --as-needed -lgcc_s --pop-state /usr/lib/gcc/x86_64-linux-gnu/7/crtendS.o /usr/lib/gcc/x86_64-linux-gnu/7/../../../x86_64-linux-gnu/crtn.o
-COLLECT_GCC_OPTIONS='-v' '-rdynamic' '-o' 'cmTC_a3b43' '-mtune=generic' '-march=x86-64'
-make[1]: se sale del directorio '/home/briam-agudelo/Escritorio/VisionArtificial/proyectoVAE2/build/CMakeFiles/CMakeTmp'
+COLLECT_GCC_OPTIONS='-v' '-rdynamic' '-o' 'cmTC_caa44' '-mtune=generic' '-march=x86-64'
+ /usr/lib/gcc/x86_64-linux-gnu/7/collect2 -plugin /usr/lib/gcc/x86_64-linux-gnu/7/liblto_plugin.so -plugin-opt=/usr/lib/gcc/x86_64-linux-gnu/7/lto-wrapper -plugin-opt=-fresolution=/tmp/cc0iz8Ix.res -plugin-opt=-pass-through=-lgcc -plugin-opt=-pass-through=-lgcc_s -plugin-opt=-pass-through=-lc -plugin-opt=-pass-through=-lgcc -plugin-opt=-pass-through=-lgcc_s --sysroot=/ --build-id --eh-frame-hdr -m elf_x86_64 --hash-style=gnu --as-needed -export-dynamic -dynamic-linker /lib64/ld-linux-x86-64.so.2 -pie -z now -z relro -o cmTC_caa44 /usr/lib/gcc/x86_64-linux-gnu/7/../../../x86_64-linux-gnu/Scrt1.o /usr/lib/gcc/x86_64-linux-gnu/7/../../../x86_64-linux-gnu/crti.o /usr/lib/gcc/x86_64-linux-gnu/7/crtbeginS.o -L/usr/lib/gcc/x86_64-linux-gnu/7 -L/usr/lib/gcc/x86_64-linux-gnu/7/../../../x86_64-linux-gnu -L/usr/lib/gcc/x86_64-linux-gnu/7/../../../../lib -L/lib/x86_64-linux-gnu -L/lib/../lib -L/usr/lib/x86_64-linux-gnu -L/usr/lib/../lib -L/usr/lib/gcc/x86_64-linux-gnu/7/../../.. CMakeFiles/cmTC_caa44.dir/CMakeCCompilerABI.c.o -lgcc --push-state --as-needed -lgcc_s --pop-state -lc -lgcc --push-state --as-needed -lgcc_s --pop-state /usr/lib/gcc/x86_64-linux-gnu/7/crtendS.o /usr/lib/gcc/x86_64-linux-gnu/7/../../../x86_64-linux-gnu/crtn.o
+COLLECT_GCC_OPTIONS='-v' '-rdynamic' '-o' 'cmTC_caa44' '-mtune=generic' '-march=x86-64'
+make[1]: se sale del directorio '/home/brandonn/Documentos/visionArtificial/proyecto/VisionArtificial/proyectoVAE2/build/CMakeFiles/CMakeTmp'
 
 
 Parsed C implicit link information from above output:
   link line regex: [^( *|.*[/\])(ld|CMAKE_LINK_STARTFILE-NOTFOUND|([^/\]+-)?ld|collect2)[^/\]*( |$)]
-  ignore line: [Change Dir: /home/briam-agudelo/Escritorio/VisionArtificial/proyectoVAE2/build/CMakeFiles/CMakeTmp]
+  ignore line: [Change Dir: /home/brandonn/Documentos/visionArtificial/proyecto/VisionArtificial/proyectoVAE2/build/CMakeFiles/CMakeTmp]
   ignore line: []
-  ignore line: [Run Build Command:"/usr/bin/make" "cmTC_a3b43/fast"]
-  ignore line: [/usr/bin/make -f CMakeFiles/cmTC_a3b43.dir/build.make CMakeFiles/cmTC_a3b43.dir/build]
-  ignore line: [make[1]: se entra en el directorio '/home/briam-agudelo/Escritorio/VisionArtificial/proyectoVAE2/build/CMakeFiles/CMakeTmp']
-  ignore line: [Building C object CMakeFiles/cmTC_a3b43.dir/CMakeCCompilerABI.c.o]
-  ignore line: [/usr/bin/cc    -o CMakeFiles/cmTC_a3b43.dir/CMakeCCompilerABI.c.o   -c /usr/share/cmake-3.10/Modules/CMakeCCompilerABI.c]
-  ignore line: [Linking C executable cmTC_a3b43]
-  ignore line: [/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_a3b43.dir/link.txt --verbose=1]
-  ignore line: [/usr/bin/cc     -v -rdynamic CMakeFiles/cmTC_a3b43.dir/CMakeCCompilerABI.c.o  -o cmTC_a3b43 ]
+  ignore line: [Run Build Command:"/usr/bin/make" "cmTC_caa44/fast"]
+  ignore line: [/usr/bin/make -f CMakeFiles/cmTC_caa44.dir/build.make CMakeFiles/cmTC_caa44.dir/build]
+  ignore line: [make[1]: se entra en el directorio '/home/brandonn/Documentos/visionArtificial/proyecto/VisionArtificial/proyectoVAE2/build/CMakeFiles/CMakeTmp']
+  ignore line: [Building C object CMakeFiles/cmTC_caa44.dir/CMakeCCompilerABI.c.o]
+  ignore line: [/usr/bin/cc    -o CMakeFiles/cmTC_caa44.dir/CMakeCCompilerABI.c.o   -c /usr/share/cmake-3.10/Modules/CMakeCCompilerABI.c]
+  ignore line: [Linking C executable cmTC_caa44]
+  ignore line: [/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_caa44.dir/link.txt --verbose=1]
+  ignore line: [/usr/bin/cc     -v -rdynamic CMakeFiles/cmTC_caa44.dir/CMakeCCompilerABI.c.o  -o cmTC_caa44 ]
   ignore line: [Using built-in specs.]
   ignore line: [COLLECT_GCC=/usr/bin/cc]
   ignore line: [COLLECT_LTO_WRAPPER=/usr/lib/gcc/x86_64-linux-gnu/7/lto-wrapper]
@@ -90,13 +90,13 @@ Parsed C implicit link information from above output:
   ignore line: [gcc version 7.4.0 (Ubuntu 7.4.0-1ubuntu1~18.04) ]
   ignore line: [COMPILER_PATH=/usr/lib/gcc/x86_64-linux-gnu/7/:/usr/lib/gcc/x86_64-linux-gnu/7/:/usr/lib/gcc/x86_64-linux-gnu/:/usr/lib/gcc/x86_64-linux-gnu/7/:/usr/lib/gcc/x86_64-linux-gnu/]
   ignore line: [LIBRARY_PATH=/usr/lib/gcc/x86_64-linux-gnu/7/:/usr/lib/gcc/x86_64-linux-gnu/7/../../../x86_64-linux-gnu/:/usr/lib/gcc/x86_64-linux-gnu/7/../../../../lib/:/lib/x86_64-linux-gnu/:/lib/../lib/:/usr/lib/x86_64-linux-gnu/:/usr/lib/../lib/:/usr/lib/gcc/x86_64-linux-gnu/7/../../../:/lib/:/usr/lib/]
-  ignore line: [COLLECT_GCC_OPTIONS='-v' '-rdynamic' '-o' 'cmTC_a3b43' '-mtune=generic' '-march=x86-64']
-  link line: [ /usr/lib/gcc/x86_64-linux-gnu/7/collect2 -plugin /usr/lib/gcc/x86_64-linux-gnu/7/liblto_plugin.so -plugin-opt=/usr/lib/gcc/x86_64-linux-gnu/7/lto-wrapper -plugin-opt=-fresolution=/tmp/cchJYOh5.res -plugin-opt=-pass-through=-lgcc -plugin-opt=-pass-through=-lgcc_s -plugin-opt=-pass-through=-lc -plugin-opt=-pass-through=-lgcc -plugin-opt=-pass-through=-lgcc_s --sysroot=/ --build-id --eh-frame-hdr -m elf_x86_64 --hash-style=gnu --as-needed -export-dynamic -dynamic-linker /lib64/ld-linux-x86-64.so.2 -pie -z now -z relro -o cmTC_a3b43 /usr/lib/gcc/x86_64-linux-gnu/7/../../../x86_64-linux-gnu/Scrt1.o /usr/lib/gcc/x86_64-linux-gnu/7/../../../x86_64-linux-gnu/crti.o /usr/lib/gcc/x86_64-linux-gnu/7/crtbeginS.o -L/usr/lib/gcc/x86_64-linux-gnu/7 -L/usr/lib/gcc/x86_64-linux-gnu/7/../../../x86_64-linux-gnu -L/usr/lib/gcc/x86_64-linux-gnu/7/../../../../lib -L/lib/x86_64-linux-gnu -L/lib/../lib -L/usr/lib/x86_64-linux-gnu -L/usr/lib/../lib -L/usr/lib/gcc/x86_64-linux-gnu/7/../../.. CMakeFiles/cmTC_a3b43.dir/CMakeCCompilerABI.c.o -lgcc --push-state --as-needed -lgcc_s --pop-state -lc -lgcc --push-state --as-needed -lgcc_s --pop-state /usr/lib/gcc/x86_64-linux-gnu/7/crtendS.o /usr/lib/gcc/x86_64-linux-gnu/7/../../../x86_64-linux-gnu/crtn.o]
+  ignore line: [COLLECT_GCC_OPTIONS='-v' '-rdynamic' '-o' 'cmTC_caa44' '-mtune=generic' '-march=x86-64']
+  link line: [ /usr/lib/gcc/x86_64-linux-gnu/7/collect2 -plugin /usr/lib/gcc/x86_64-linux-gnu/7/liblto_plugin.so -plugin-opt=/usr/lib/gcc/x86_64-linux-gnu/7/lto-wrapper -plugin-opt=-fresolution=/tmp/cc0iz8Ix.res -plugin-opt=-pass-through=-lgcc -plugin-opt=-pass-through=-lgcc_s -plugin-opt=-pass-through=-lc -plugin-opt=-pass-through=-lgcc -plugin-opt=-pass-through=-lgcc_s --sysroot=/ --build-id --eh-frame-hdr -m elf_x86_64 --hash-style=gnu --as-needed -export-dynamic -dynamic-linker /lib64/ld-linux-x86-64.so.2 -pie -z now -z relro -o cmTC_caa44 /usr/lib/gcc/x86_64-linux-gnu/7/../../../x86_64-linux-gnu/Scrt1.o /usr/lib/gcc/x86_64-linux-gnu/7/../../../x86_64-linux-gnu/crti.o /usr/lib/gcc/x86_64-linux-gnu/7/crtbeginS.o -L/usr/lib/gcc/x86_64-linux-gnu/7 -L/usr/lib/gcc/x86_64-linux-gnu/7/../../../x86_64-linux-gnu -L/usr/lib/gcc/x86_64-linux-gnu/7/../../../../lib -L/lib/x86_64-linux-gnu -L/lib/../lib -L/usr/lib/x86_64-linux-gnu -L/usr/lib/../lib -L/usr/lib/gcc/x86_64-linux-gnu/7/../../.. CMakeFiles/cmTC_caa44.dir/CMakeCCompilerABI.c.o -lgcc --push-state --as-needed -lgcc_s --pop-state -lc -lgcc --push-state --as-needed -lgcc_s --pop-state /usr/lib/gcc/x86_64-linux-gnu/7/crtendS.o /usr/lib/gcc/x86_64-linux-gnu/7/../../../x86_64-linux-gnu/crtn.o]
     arg [/usr/lib/gcc/x86_64-linux-gnu/7/collect2] ==> ignore
     arg [-plugin] ==> ignore
     arg [/usr/lib/gcc/x86_64-linux-gnu/7/liblto_plugin.so] ==> ignore
     arg [-plugin-opt=/usr/lib/gcc/x86_64-linux-gnu/7/lto-wrapper] ==> ignore
-    arg [-plugin-opt=-fresolution=/tmp/cchJYOh5.res] ==> ignore
+    arg [-plugin-opt=-fresolution=/tmp/cc0iz8Ix.res] ==> ignore
     arg [-plugin-opt=-pass-through=-lgcc] ==> ignore
     arg [-plugin-opt=-pass-through=-lgcc_s] ==> ignore
     arg [-plugin-opt=-pass-through=-lc] ==> ignore
@@ -116,7 +116,7 @@ Parsed C implicit link information from above output:
     arg [-znow] ==> ignore
     arg [-zrelro] ==> ignore
     arg [-o] ==> ignore
-    arg [cmTC_a3b43] ==> ignore
+    arg [cmTC_caa44] ==> ignore
     arg [/usr/lib/gcc/x86_64-linux-gnu/7/../../../x86_64-linux-gnu/Scrt1.o] ==> ignore
     arg [/usr/lib/gcc/x86_64-linux-gnu/7/../../../x86_64-linux-gnu/crti.o] ==> ignore
     arg [/usr/lib/gcc/x86_64-linux-gnu/7/crtbeginS.o] ==> ignore
@@ -128,7 +128,7 @@ Parsed C implicit link information from above output:
     arg [-L/usr/lib/x86_64-linux-gnu] ==> dir [/usr/lib/x86_64-linux-gnu]
     arg [-L/usr/lib/../lib] ==> dir [/usr/lib/../lib]
     arg [-L/usr/lib/gcc/x86_64-linux-gnu/7/../../..] ==> dir [/usr/lib/gcc/x86_64-linux-gnu/7/../../..]
-    arg [CMakeFiles/cmTC_a3b43.dir/CMakeCCompilerABI.c.o] ==> ignore
+    arg [CMakeFiles/cmTC_caa44.dir/CMakeCCompilerABI.c.o] ==> ignore
     arg [-lgcc] ==> lib [gcc]
     arg [--push-state] ==> ignore
     arg [--as-needed] ==> ignore
@@ -158,17 +158,17 @@ Parsed C implicit link information from above output:
 
 
 Detecting C [-std=c11] compiler features compiled with the following output:
-Change Dir: /home/briam-agudelo/Escritorio/VisionArtificial/proyectoVAE2/build/CMakeFiles/CMakeTmp
+Change Dir: /home/brandonn/Documentos/visionArtificial/proyecto/VisionArtificial/proyectoVAE2/build/CMakeFiles/CMakeTmp
 
-Run Build Command:"/usr/bin/make" "cmTC_cce19/fast"
-/usr/bin/make -f CMakeFiles/cmTC_cce19.dir/build.make CMakeFiles/cmTC_cce19.dir/build
-make[1]: se entra en el directorio '/home/briam-agudelo/Escritorio/VisionArtificial/proyectoVAE2/build/CMakeFiles/CMakeTmp'
-Building C object CMakeFiles/cmTC_cce19.dir/feature_tests.c.o
-/usr/bin/cc   -std=c11 -o CMakeFiles/cmTC_cce19.dir/feature_tests.c.o   -c /home/briam-agudelo/Escritorio/VisionArtificial/proyectoVAE2/build/CMakeFiles/feature_tests.c
-Linking C executable cmTC_cce19
-/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_cce19.dir/link.txt --verbose=1
-/usr/bin/cc      -rdynamic CMakeFiles/cmTC_cce19.dir/feature_tests.c.o  -o cmTC_cce19 
-make[1]: se sale del directorio '/home/briam-agudelo/Escritorio/VisionArtificial/proyectoVAE2/build/CMakeFiles/CMakeTmp'
+Run Build Command:"/usr/bin/make" "cmTC_db2f8/fast"
+/usr/bin/make -f CMakeFiles/cmTC_db2f8.dir/build.make CMakeFiles/cmTC_db2f8.dir/build
+make[1]: se entra en el directorio '/home/brandonn/Documentos/visionArtificial/proyecto/VisionArtificial/proyectoVAE2/build/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_db2f8.dir/feature_tests.c.o
+/usr/bin/cc   -std=c11 -o CMakeFiles/cmTC_db2f8.dir/feature_tests.c.o   -c /home/brandonn/Documentos/visionArtificial/proyecto/VisionArtificial/proyectoVAE2/build/CMakeFiles/feature_tests.c
+Linking C executable cmTC_db2f8
+/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_db2f8.dir/link.txt --verbose=1
+/usr/bin/cc      -rdynamic CMakeFiles/cmTC_db2f8.dir/feature_tests.c.o  -o cmTC_db2f8 
+make[1]: se sale del directorio '/home/brandonn/Documentos/visionArtificial/proyecto/VisionArtificial/proyectoVAE2/build/CMakeFiles/CMakeTmp'
 
 
     Feature record: C_FEATURE:1c_function_prototypes
@@ -178,17 +178,17 @@ make[1]: se sale del directorio '/home/briam-agudelo/Escritorio/VisionArtificial
 
 
 Detecting C [-std=c99] compiler features compiled with the following output:
-Change Dir: /home/briam-agudelo/Escritorio/VisionArtificial/proyectoVAE2/build/CMakeFiles/CMakeTmp
+Change Dir: /home/brandonn/Documentos/visionArtificial/proyecto/VisionArtificial/proyectoVAE2/build/CMakeFiles/CMakeTmp
 
-Run Build Command:"/usr/bin/make" "cmTC_5a763/fast"
-/usr/bin/make -f CMakeFiles/cmTC_5a763.dir/build.make CMakeFiles/cmTC_5a763.dir/build
-make[1]: se entra en el directorio '/home/briam-agudelo/Escritorio/VisionArtificial/proyectoVAE2/build/CMakeFiles/CMakeTmp'
-Building C object CMakeFiles/cmTC_5a763.dir/feature_tests.c.o
-/usr/bin/cc   -std=c99 -o CMakeFiles/cmTC_5a763.dir/feature_tests.c.o   -c /home/briam-agudelo/Escritorio/VisionArtificial/proyectoVAE2/build/CMakeFiles/feature_tests.c
-Linking C executable cmTC_5a763
-/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_5a763.dir/link.txt --verbose=1
-/usr/bin/cc      -rdynamic CMakeFiles/cmTC_5a763.dir/feature_tests.c.o  -o cmTC_5a763 
-make[1]: se sale del directorio '/home/briam-agudelo/Escritorio/VisionArtificial/proyectoVAE2/build/CMakeFiles/CMakeTmp'
+Run Build Command:"/usr/bin/make" "cmTC_5c7bf/fast"
+/usr/bin/make -f CMakeFiles/cmTC_5c7bf.dir/build.make CMakeFiles/cmTC_5c7bf.dir/build
+make[1]: se entra en el directorio '/home/brandonn/Documentos/visionArtificial/proyecto/VisionArtificial/proyectoVAE2/build/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_5c7bf.dir/feature_tests.c.o
+/usr/bin/cc   -std=c99 -o CMakeFiles/cmTC_5c7bf.dir/feature_tests.c.o   -c /home/brandonn/Documentos/visionArtificial/proyecto/VisionArtificial/proyectoVAE2/build/CMakeFiles/feature_tests.c
+Linking C executable cmTC_5c7bf
+/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_5c7bf.dir/link.txt --verbose=1
+/usr/bin/cc      -rdynamic CMakeFiles/cmTC_5c7bf.dir/feature_tests.c.o  -o cmTC_5c7bf 
+make[1]: se sale del directorio '/home/brandonn/Documentos/visionArtificial/proyecto/VisionArtificial/proyectoVAE2/build/CMakeFiles/CMakeTmp'
 
 
     Feature record: C_FEATURE:1c_function_prototypes
@@ -198,17 +198,17 @@ make[1]: se sale del directorio '/home/briam-agudelo/Escritorio/VisionArtificial
 
 
 Detecting C [-std=c90] compiler features compiled with the following output:
-Change Dir: /home/briam-agudelo/Escritorio/VisionArtificial/proyectoVAE2/build/CMakeFiles/CMakeTmp
+Change Dir: /home/brandonn/Documentos/visionArtificial/proyecto/VisionArtificial/proyectoVAE2/build/CMakeFiles/CMakeTmp
 
-Run Build Command:"/usr/bin/make" "cmTC_13244/fast"
-/usr/bin/make -f CMakeFiles/cmTC_13244.dir/build.make CMakeFiles/cmTC_13244.dir/build
-make[1]: se entra en el directorio '/home/briam-agudelo/Escritorio/VisionArtificial/proyectoVAE2/build/CMakeFiles/CMakeTmp'
-Building C object CMakeFiles/cmTC_13244.dir/feature_tests.c.o
-/usr/bin/cc   -std=c90 -o CMakeFiles/cmTC_13244.dir/feature_tests.c.o   -c /home/briam-agudelo/Escritorio/VisionArtificial/proyectoVAE2/build/CMakeFiles/feature_tests.c
-Linking C executable cmTC_13244
-/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_13244.dir/link.txt --verbose=1
-/usr/bin/cc      -rdynamic CMakeFiles/cmTC_13244.dir/feature_tests.c.o  -o cmTC_13244 
-make[1]: se sale del directorio '/home/briam-agudelo/Escritorio/VisionArtificial/proyectoVAE2/build/CMakeFiles/CMakeTmp'
+Run Build Command:"/usr/bin/make" "cmTC_b4e9d/fast"
+/usr/bin/make -f CMakeFiles/cmTC_b4e9d.dir/build.make CMakeFiles/cmTC_b4e9d.dir/build
+make[1]: se entra en el directorio '/home/brandonn/Documentos/visionArtificial/proyecto/VisionArtificial/proyectoVAE2/build/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_b4e9d.dir/feature_tests.c.o
+/usr/bin/cc   -std=c90 -o CMakeFiles/cmTC_b4e9d.dir/feature_tests.c.o   -c /home/brandonn/Documentos/visionArtificial/proyecto/VisionArtificial/proyectoVAE2/build/CMakeFiles/feature_tests.c
+Linking C executable cmTC_b4e9d
+/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_b4e9d.dir/link.txt --verbose=1
+/usr/bin/cc      -rdynamic CMakeFiles/cmTC_b4e9d.dir/feature_tests.c.o  -o cmTC_b4e9d 
+make[1]: se sale del directorio '/home/brandonn/Documentos/visionArtificial/proyecto/VisionArtificial/proyectoVAE2/build/CMakeFiles/CMakeTmp'
 
 
     Feature record: C_FEATURE:1c_function_prototypes
@@ -216,30 +216,30 @@ make[1]: se sale del directorio '/home/briam-agudelo/Escritorio/VisionArtificial
     Feature record: C_FEATURE:0c_static_assert
     Feature record: C_FEATURE:0c_variadic_macros
 Determining if the CXX compiler works passed with the following output:
-Change Dir: /home/briam-agudelo/Escritorio/VisionArtificial/proyectoVAE2/build/CMakeFiles/CMakeTmp
+Change Dir: /home/brandonn/Documentos/visionArtificial/proyecto/VisionArtificial/proyectoVAE2/build/CMakeFiles/CMakeTmp
 
-Run Build Command:"/usr/bin/make" "cmTC_c7629/fast"
-/usr/bin/make -f CMakeFiles/cmTC_c7629.dir/build.make CMakeFiles/cmTC_c7629.dir/build
-make[1]: se entra en el directorio '/home/briam-agudelo/Escritorio/VisionArtificial/proyectoVAE2/build/CMakeFiles/CMakeTmp'
-Building CXX object CMakeFiles/cmTC_c7629.dir/testCXXCompiler.cxx.o
-/usr/bin/c++     -o CMakeFiles/cmTC_c7629.dir/testCXXCompiler.cxx.o -c /home/briam-agudelo/Escritorio/VisionArtificial/proyectoVAE2/build/CMakeFiles/CMakeTmp/testCXXCompiler.cxx
-Linking CXX executable cmTC_c7629
-/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_c7629.dir/link.txt --verbose=1
-/usr/bin/c++       -rdynamic CMakeFiles/cmTC_c7629.dir/testCXXCompiler.cxx.o  -o cmTC_c7629 
-make[1]: se sale del directorio '/home/briam-agudelo/Escritorio/VisionArtificial/proyectoVAE2/build/CMakeFiles/CMakeTmp'
+Run Build Command:"/usr/bin/make" "cmTC_b4a47/fast"
+/usr/bin/make -f CMakeFiles/cmTC_b4a47.dir/build.make CMakeFiles/cmTC_b4a47.dir/build
+make[1]: se entra en el directorio '/home/brandonn/Documentos/visionArtificial/proyecto/VisionArtificial/proyectoVAE2/build/CMakeFiles/CMakeTmp'
+Building CXX object CMakeFiles/cmTC_b4a47.dir/testCXXCompiler.cxx.o
+/usr/bin/c++     -o CMakeFiles/cmTC_b4a47.dir/testCXXCompiler.cxx.o -c /home/brandonn/Documentos/visionArtificial/proyecto/VisionArtificial/proyectoVAE2/build/CMakeFiles/CMakeTmp/testCXXCompiler.cxx
+Linking CXX executable cmTC_b4a47
+/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_b4a47.dir/link.txt --verbose=1
+/usr/bin/c++       -rdynamic CMakeFiles/cmTC_b4a47.dir/testCXXCompiler.cxx.o  -o cmTC_b4a47 
+make[1]: se sale del directorio '/home/brandonn/Documentos/visionArtificial/proyecto/VisionArtificial/proyectoVAE2/build/CMakeFiles/CMakeTmp'
 
 
 Detecting CXX compiler ABI info compiled with the following output:
-Change Dir: /home/briam-agudelo/Escritorio/VisionArtificial/proyectoVAE2/build/CMakeFiles/CMakeTmp
+Change Dir: /home/brandonn/Documentos/visionArtificial/proyecto/VisionArtificial/proyectoVAE2/build/CMakeFiles/CMakeTmp
 
-Run Build Command:"/usr/bin/make" "cmTC_c5d61/fast"
-/usr/bin/make -f CMakeFiles/cmTC_c5d61.dir/build.make CMakeFiles/cmTC_c5d61.dir/build
-make[1]: se entra en el directorio '/home/briam-agudelo/Escritorio/VisionArtificial/proyectoVAE2/build/CMakeFiles/CMakeTmp'
-Building CXX object CMakeFiles/cmTC_c5d61.dir/CMakeCXXCompilerABI.cpp.o
-/usr/bin/c++     -o CMakeFiles/cmTC_c5d61.dir/CMakeCXXCompilerABI.cpp.o -c /usr/share/cmake-3.10/Modules/CMakeCXXCompilerABI.cpp
-Linking CXX executable cmTC_c5d61
-/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_c5d61.dir/link.txt --verbose=1
-/usr/bin/c++      -v -rdynamic CMakeFiles/cmTC_c5d61.dir/CMakeCXXCompilerABI.cpp.o  -o cmTC_c5d61 
+Run Build Command:"/usr/bin/make" "cmTC_b8845/fast"
+/usr/bin/make -f CMakeFiles/cmTC_b8845.dir/build.make CMakeFiles/cmTC_b8845.dir/build
+make[1]: se entra en el directorio '/home/brandonn/Documentos/visionArtificial/proyecto/VisionArtificial/proyectoVAE2/build/CMakeFiles/CMakeTmp'
+Building CXX object CMakeFiles/cmTC_b8845.dir/CMakeCXXCompilerABI.cpp.o
+/usr/bin/c++     -o CMakeFiles/cmTC_b8845.dir/CMakeCXXCompilerABI.cpp.o -c /usr/share/cmake-3.10/Modules/CMakeCXXCompilerABI.cpp
+Linking CXX executable cmTC_b8845
+/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_b8845.dir/link.txt --verbose=1
+/usr/bin/c++      -v -rdynamic CMakeFiles/cmTC_b8845.dir/CMakeCXXCompilerABI.cpp.o  -o cmTC_b8845 
 Using built-in specs.
 COLLECT_GCC=/usr/bin/c++
 COLLECT_LTO_WRAPPER=/usr/lib/gcc/x86_64-linux-gnu/7/lto-wrapper
@@ -251,24 +251,24 @@ Thread model: posix
 gcc version 7.4.0 (Ubuntu 7.4.0-1ubuntu1~18.04) 
 COMPILER_PATH=/usr/lib/gcc/x86_64-linux-gnu/7/:/usr/lib/gcc/x86_64-linux-gnu/7/:/usr/lib/gcc/x86_64-linux-gnu/:/usr/lib/gcc/x86_64-linux-gnu/7/:/usr/lib/gcc/x86_64-linux-gnu/
 LIBRARY_PATH=/usr/lib/gcc/x86_64-linux-gnu/7/:/usr/lib/gcc/x86_64-linux-gnu/7/../../../x86_64-linux-gnu/:/usr/lib/gcc/x86_64-linux-gnu/7/../../../../lib/:/lib/x86_64-linux-gnu/:/lib/../lib/:/usr/lib/x86_64-linux-gnu/:/usr/lib/../lib/:/usr/lib/gcc/x86_64-linux-gnu/7/../../../:/lib/:/usr/lib/
-COLLECT_GCC_OPTIONS='-v' '-rdynamic' '-o' 'cmTC_c5d61' '-shared-libgcc' '-mtune=generic' '-march=x86-64'
- /usr/lib/gcc/x86_64-linux-gnu/7/collect2 -plugin /usr/lib/gcc/x86_64-linux-gnu/7/liblto_plugin.so -plugin-opt=/usr/lib/gcc/x86_64-linux-gnu/7/lto-wrapper -plugin-opt=-fresolution=/tmp/cc0E57FN.res -plugin-opt=-pass-through=-lgcc_s -plugin-opt=-pass-through=-lgcc -plugin-opt=-pass-through=-lc -plugin-opt=-pass-through=-lgcc_s -plugin-opt=-pass-through=-lgcc --sysroot=/ --build-id --eh-frame-hdr -m elf_x86_64 --hash-style=gnu --as-needed -export-dynamic -dynamic-linker /lib64/ld-linux-x86-64.so.2 -pie -z now -z relro -o cmTC_c5d61 /usr/lib/gcc/x86_64-linux-gnu/7/../../../x86_64-linux-gnu/Scrt1.o /usr/lib/gcc/x86_64-linux-gnu/7/../../../x86_64-linux-gnu/crti.o /usr/lib/gcc/x86_64-linux-gnu/7/crtbeginS.o -L/usr/lib/gcc/x86_64-linux-gnu/7 -L/usr/lib/gcc/x86_64-linux-gnu/7/../../../x86_64-linux-gnu -L/usr/lib/gcc/x86_64-linux-gnu/7/../../../../lib -L/lib/x86_64-linux-gnu -L/lib/../lib -L/usr/lib/x86_64-linux-gnu -L/usr/lib/../lib -L/usr/lib/gcc/x86_64-linux-gnu/7/../../.. CMakeFiles/cmTC_c5d61.dir/CMakeCXXCompilerABI.cpp.o -lstdc++ -lm -lgcc_s -lgcc -lc -lgcc_s -lgcc /usr/lib/gcc/x86_64-linux-gnu/7/crtendS.o /usr/lib/gcc/x86_64-linux-gnu/7/../../../x86_64-linux-gnu/crtn.o
-COLLECT_GCC_OPTIONS='-v' '-rdynamic' '-o' 'cmTC_c5d61' '-shared-libgcc' '-mtune=generic' '-march=x86-64'
-make[1]: se sale del directorio '/home/briam-agudelo/Escritorio/VisionArtificial/proyectoVAE2/build/CMakeFiles/CMakeTmp'
+COLLECT_GCC_OPTIONS='-v' '-rdynamic' '-o' 'cmTC_b8845' '-shared-libgcc' '-mtune=generic' '-march=x86-64'
+ /usr/lib/gcc/x86_64-linux-gnu/7/collect2 -plugin /usr/lib/gcc/x86_64-linux-gnu/7/liblto_plugin.so -plugin-opt=/usr/lib/gcc/x86_64-linux-gnu/7/lto-wrapper -plugin-opt=-fresolution=/tmp/ccSIUyVU.res -plugin-opt=-pass-through=-lgcc_s -plugin-opt=-pass-through=-lgcc -plugin-opt=-pass-through=-lc -plugin-opt=-pass-through=-lgcc_s -plugin-opt=-pass-through=-lgcc --sysroot=/ --build-id --eh-frame-hdr -m elf_x86_64 --hash-style=gnu --as-needed -export-dynamic -dynamic-linker /lib64/ld-linux-x86-64.so.2 -pie -z now -z relro -o cmTC_b8845 /usr/lib/gcc/x86_64-linux-gnu/7/../../../x86_64-linux-gnu/Scrt1.o /usr/lib/gcc/x86_64-linux-gnu/7/../../../x86_64-linux-gnu/crti.o /usr/lib/gcc/x86_64-linux-gnu/7/crtbeginS.o -L/usr/lib/gcc/x86_64-linux-gnu/7 -L/usr/lib/gcc/x86_64-linux-gnu/7/../../../x86_64-linux-gnu -L/usr/lib/gcc/x86_64-linux-gnu/7/../../../../lib -L/lib/x86_64-linux-gnu -L/lib/../lib -L/usr/lib/x86_64-linux-gnu -L/usr/lib/../lib -L/usr/lib/gcc/x86_64-linux-gnu/7/../../.. CMakeFiles/cmTC_b8845.dir/CMakeCXXCompilerABI.cpp.o -lstdc++ -lm -lgcc_s -lgcc -lc -lgcc_s -lgcc /usr/lib/gcc/x86_64-linux-gnu/7/crtendS.o /usr/lib/gcc/x86_64-linux-gnu/7/../../../x86_64-linux-gnu/crtn.o
+COLLECT_GCC_OPTIONS='-v' '-rdynamic' '-o' 'cmTC_b8845' '-shared-libgcc' '-mtune=generic' '-march=x86-64'
+make[1]: se sale del directorio '/home/brandonn/Documentos/visionArtificial/proyecto/VisionArtificial/proyectoVAE2/build/CMakeFiles/CMakeTmp'
 
 
 Parsed CXX implicit link information from above output:
   link line regex: [^( *|.*[/\])(ld|CMAKE_LINK_STARTFILE-NOTFOUND|([^/\]+-)?ld|collect2)[^/\]*( |$)]
-  ignore line: [Change Dir: /home/briam-agudelo/Escritorio/VisionArtificial/proyectoVAE2/build/CMakeFiles/CMakeTmp]
+  ignore line: [Change Dir: /home/brandonn/Documentos/visionArtificial/proyecto/VisionArtificial/proyectoVAE2/build/CMakeFiles/CMakeTmp]
   ignore line: []
-  ignore line: [Run Build Command:"/usr/bin/make" "cmTC_c5d61/fast"]
-  ignore line: [/usr/bin/make -f CMakeFiles/cmTC_c5d61.dir/build.make CMakeFiles/cmTC_c5d61.dir/build]
-  ignore line: [make[1]: se entra en el directorio '/home/briam-agudelo/Escritorio/VisionArtificial/proyectoVAE2/build/CMakeFiles/CMakeTmp']
-  ignore line: [Building CXX object CMakeFiles/cmTC_c5d61.dir/CMakeCXXCompilerABI.cpp.o]
-  ignore line: [/usr/bin/c++     -o CMakeFiles/cmTC_c5d61.dir/CMakeCXXCompilerABI.cpp.o -c /usr/share/cmake-3.10/Modules/CMakeCXXCompilerABI.cpp]
-  ignore line: [Linking CXX executable cmTC_c5d61]
-  ignore line: [/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_c5d61.dir/link.txt --verbose=1]
-  ignore line: [/usr/bin/c++      -v -rdynamic CMakeFiles/cmTC_c5d61.dir/CMakeCXXCompilerABI.cpp.o  -o cmTC_c5d61 ]
+  ignore line: [Run Build Command:"/usr/bin/make" "cmTC_b8845/fast"]
+  ignore line: [/usr/bin/make -f CMakeFiles/cmTC_b8845.dir/build.make CMakeFiles/cmTC_b8845.dir/build]
+  ignore line: [make[1]: se entra en el directorio '/home/brandonn/Documentos/visionArtificial/proyecto/VisionArtificial/proyectoVAE2/build/CMakeFiles/CMakeTmp']
+  ignore line: [Building CXX object CMakeFiles/cmTC_b8845.dir/CMakeCXXCompilerABI.cpp.o]
+  ignore line: [/usr/bin/c++     -o CMakeFiles/cmTC_b8845.dir/CMakeCXXCompilerABI.cpp.o -c /usr/share/cmake-3.10/Modules/CMakeCXXCompilerABI.cpp]
+  ignore line: [Linking CXX executable cmTC_b8845]
+  ignore line: [/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_b8845.dir/link.txt --verbose=1]
+  ignore line: [/usr/bin/c++      -v -rdynamic CMakeFiles/cmTC_b8845.dir/CMakeCXXCompilerABI.cpp.o  -o cmTC_b8845 ]
   ignore line: [Using built-in specs.]
   ignore line: [COLLECT_GCC=/usr/bin/c++]
   ignore line: [COLLECT_LTO_WRAPPER=/usr/lib/gcc/x86_64-linux-gnu/7/lto-wrapper]
@@ -280,13 +280,13 @@ Parsed CXX implicit link information from above output:
   ignore line: [gcc version 7.4.0 (Ubuntu 7.4.0-1ubuntu1~18.04) ]
   ignore line: [COMPILER_PATH=/usr/lib/gcc/x86_64-linux-gnu/7/:/usr/lib/gcc/x86_64-linux-gnu/7/:/usr/lib/gcc/x86_64-linux-gnu/:/usr/lib/gcc/x86_64-linux-gnu/7/:/usr/lib/gcc/x86_64-linux-gnu/]
   ignore line: [LIBRARY_PATH=/usr/lib/gcc/x86_64-linux-gnu/7/:/usr/lib/gcc/x86_64-linux-gnu/7/../../../x86_64-linux-gnu/:/usr/lib/gcc/x86_64-linux-gnu/7/../../../../lib/:/lib/x86_64-linux-gnu/:/lib/../lib/:/usr/lib/x86_64-linux-gnu/:/usr/lib/../lib/:/usr/lib/gcc/x86_64-linux-gnu/7/../../../:/lib/:/usr/lib/]
-  ignore line: [COLLECT_GCC_OPTIONS='-v' '-rdynamic' '-o' 'cmTC_c5d61' '-shared-libgcc' '-mtune=generic' '-march=x86-64']
-  link line: [ /usr/lib/gcc/x86_64-linux-gnu/7/collect2 -plugin /usr/lib/gcc/x86_64-linux-gnu/7/liblto_plugin.so -plugin-opt=/usr/lib/gcc/x86_64-linux-gnu/7/lto-wrapper -plugin-opt=-fresolution=/tmp/cc0E57FN.res -plugin-opt=-pass-through=-lgcc_s -plugin-opt=-pass-through=-lgcc -plugin-opt=-pass-through=-lc -plugin-opt=-pass-through=-lgcc_s -plugin-opt=-pass-through=-lgcc --sysroot=/ --build-id --eh-frame-hdr -m elf_x86_64 --hash-style=gnu --as-needed -export-dynamic -dynamic-linker /lib64/ld-linux-x86-64.so.2 -pie -z now -z relro -o cmTC_c5d61 /usr/lib/gcc/x86_64-linux-gnu/7/../../../x86_64-linux-gnu/Scrt1.o /usr/lib/gcc/x86_64-linux-gnu/7/../../../x86_64-linux-gnu/crti.o /usr/lib/gcc/x86_64-linux-gnu/7/crtbeginS.o -L/usr/lib/gcc/x86_64-linux-gnu/7 -L/usr/lib/gcc/x86_64-linux-gnu/7/../../../x86_64-linux-gnu -L/usr/lib/gcc/x86_64-linux-gnu/7/../../../../lib -L/lib/x86_64-linux-gnu -L/lib/../lib -L/usr/lib/x86_64-linux-gnu -L/usr/lib/../lib -L/usr/lib/gcc/x86_64-linux-gnu/7/../../.. CMakeFiles/cmTC_c5d61.dir/CMakeCXXCompilerABI.cpp.o -lstdc++ -lm -lgcc_s -lgcc -lc -lgcc_s -lgcc /usr/lib/gcc/x86_64-linux-gnu/7/crtendS.o /usr/lib/gcc/x86_64-linux-gnu/7/../../../x86_64-linux-gnu/crtn.o]
+  ignore line: [COLLECT_GCC_OPTIONS='-v' '-rdynamic' '-o' 'cmTC_b8845' '-shared-libgcc' '-mtune=generic' '-march=x86-64']
+  link line: [ /usr/lib/gcc/x86_64-linux-gnu/7/collect2 -plugin /usr/lib/gcc/x86_64-linux-gnu/7/liblto_plugin.so -plugin-opt=/usr/lib/gcc/x86_64-linux-gnu/7/lto-wrapper -plugin-opt=-fresolution=/tmp/ccSIUyVU.res -plugin-opt=-pass-through=-lgcc_s -plugin-opt=-pass-through=-lgcc -plugin-opt=-pass-through=-lc -plugin-opt=-pass-through=-lgcc_s -plugin-opt=-pass-through=-lgcc --sysroot=/ --build-id --eh-frame-hdr -m elf_x86_64 --hash-style=gnu --as-needed -export-dynamic -dynamic-linker /lib64/ld-linux-x86-64.so.2 -pie -z now -z relro -o cmTC_b8845 /usr/lib/gcc/x86_64-linux-gnu/7/../../../x86_64-linux-gnu/Scrt1.o /usr/lib/gcc/x86_64-linux-gnu/7/../../../x86_64-linux-gnu/crti.o /usr/lib/gcc/x86_64-linux-gnu/7/crtbeginS.o -L/usr/lib/gcc/x86_64-linux-gnu/7 -L/usr/lib/gcc/x86_64-linux-gnu/7/../../../x86_64-linux-gnu -L/usr/lib/gcc/x86_64-linux-gnu/7/../../../../lib -L/lib/x86_64-linux-gnu -L/lib/../lib -L/usr/lib/x86_64-linux-gnu -L/usr/lib/../lib -L/usr/lib/gcc/x86_64-linux-gnu/7/../../.. CMakeFiles/cmTC_b8845.dir/CMakeCXXCompilerABI.cpp.o -lstdc++ -lm -lgcc_s -lgcc -lc -lgcc_s -lgcc /usr/lib/gcc/x86_64-linux-gnu/7/crtendS.o /usr/lib/gcc/x86_64-linux-gnu/7/../../../x86_64-linux-gnu/crtn.o]
     arg [/usr/lib/gcc/x86_64-linux-gnu/7/collect2] ==> ignore
     arg [-plugin] ==> ignore
     arg [/usr/lib/gcc/x86_64-linux-gnu/7/liblto_plugin.so] ==> ignore
     arg [-plugin-opt=/usr/lib/gcc/x86_64-linux-gnu/7/lto-wrapper] ==> ignore
-    arg [-plugin-opt=-fresolution=/tmp/cc0E57FN.res] ==> ignore
+    arg [-plugin-opt=-fresolution=/tmp/ccSIUyVU.res] ==> ignore
     arg [-plugin-opt=-pass-through=-lgcc_s] ==> ignore
     arg [-plugin-opt=-pass-through=-lgcc] ==> ignore
     arg [-plugin-opt=-pass-through=-lc] ==> ignore
@@ -306,7 +306,7 @@ Parsed CXX implicit link information from above output:
     arg [-znow] ==> ignore
     arg [-zrelro] ==> ignore
     arg [-o] ==> ignore
-    arg [cmTC_c5d61] ==> ignore
+    arg [cmTC_b8845] ==> ignore
     arg [/usr/lib/gcc/x86_64-linux-gnu/7/../../../x86_64-linux-gnu/Scrt1.o] ==> ignore
     arg [/usr/lib/gcc/x86_64-linux-gnu/7/../../../x86_64-linux-gnu/crti.o] ==> ignore
     arg [/usr/lib/gcc/x86_64-linux-gnu/7/crtbeginS.o] ==> ignore
@@ -318,7 +318,7 @@ Parsed CXX implicit link information from above output:
     arg [-L/usr/lib/x86_64-linux-gnu] ==> dir [/usr/lib/x86_64-linux-gnu]
     arg [-L/usr/lib/../lib] ==> dir [/usr/lib/../lib]
     arg [-L/usr/lib/gcc/x86_64-linux-gnu/7/../../..] ==> dir [/usr/lib/gcc/x86_64-linux-gnu/7/../../..]
-    arg [CMakeFiles/cmTC_c5d61.dir/CMakeCXXCompilerABI.cpp.o] ==> ignore
+    arg [CMakeFiles/cmTC_b8845.dir/CMakeCXXCompilerABI.cpp.o] ==> ignore
     arg [-lstdc++] ==> lib [stdc++]
     arg [-lm] ==> lib [m]
     arg [-lgcc_s] ==> lib [gcc_s]
@@ -344,17 +344,17 @@ Parsed CXX implicit link information from above output:
 
 
 Detecting CXX [-std=c++1z] compiler features compiled with the following output:
-Change Dir: /home/briam-agudelo/Escritorio/VisionArtificial/proyectoVAE2/build/CMakeFiles/CMakeTmp
+Change Dir: /home/brandonn/Documentos/visionArtificial/proyecto/VisionArtificial/proyectoVAE2/build/CMakeFiles/CMakeTmp
 
-Run Build Command:"/usr/bin/make" "cmTC_63fcc/fast"
-/usr/bin/make -f CMakeFiles/cmTC_63fcc.dir/build.make CMakeFiles/cmTC_63fcc.dir/build
-make[1]: se entra en el directorio '/home/briam-agudelo/Escritorio/VisionArtificial/proyectoVAE2/build/CMakeFiles/CMakeTmp'
-Building CXX object CMakeFiles/cmTC_63fcc.dir/feature_tests.cxx.o
-/usr/bin/c++    -std=c++1z -o CMakeFiles/cmTC_63fcc.dir/feature_tests.cxx.o -c /home/briam-agudelo/Escritorio/VisionArtificial/proyectoVAE2/build/CMakeFiles/feature_tests.cxx
-Linking CXX executable cmTC_63fcc
-/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_63fcc.dir/link.txt --verbose=1
-/usr/bin/c++       -rdynamic CMakeFiles/cmTC_63fcc.dir/feature_tests.cxx.o  -o cmTC_63fcc 
-make[1]: se sale del directorio '/home/briam-agudelo/Escritorio/VisionArtificial/proyectoVAE2/build/CMakeFiles/CMakeTmp'
+Run Build Command:"/usr/bin/make" "cmTC_ce18b/fast"
+/usr/bin/make -f CMakeFiles/cmTC_ce18b.dir/build.make CMakeFiles/cmTC_ce18b.dir/build
+make[1]: se entra en el directorio '/home/brandonn/Documentos/visionArtificial/proyecto/VisionArtificial/proyectoVAE2/build/CMakeFiles/CMakeTmp'
+Building CXX object CMakeFiles/cmTC_ce18b.dir/feature_tests.cxx.o
+/usr/bin/c++    -std=c++1z -o CMakeFiles/cmTC_ce18b.dir/feature_tests.cxx.o -c /home/brandonn/Documentos/visionArtificial/proyecto/VisionArtificial/proyectoVAE2/build/CMakeFiles/feature_tests.cxx
+Linking CXX executable cmTC_ce18b
+/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_ce18b.dir/link.txt --verbose=1
+/usr/bin/c++       -rdynamic CMakeFiles/cmTC_ce18b.dir/feature_tests.cxx.o  -o cmTC_ce18b 
+make[1]: se sale del directorio '/home/brandonn/Documentos/visionArtificial/proyecto/VisionArtificial/proyectoVAE2/build/CMakeFiles/CMakeTmp'
 
 
     Feature record: CXX_FEATURE:1cxx_aggregate_default_initializers
@@ -417,17 +417,17 @@ make[1]: se sale del directorio '/home/briam-agudelo/Escritorio/VisionArtificial
 
 
 Detecting CXX [-std=c++14] compiler features compiled with the following output:
-Change Dir: /home/briam-agudelo/Escritorio/VisionArtificial/proyectoVAE2/build/CMakeFiles/CMakeTmp
+Change Dir: /home/brandonn/Documentos/visionArtificial/proyecto/VisionArtificial/proyectoVAE2/build/CMakeFiles/CMakeTmp
 
-Run Build Command:"/usr/bin/make" "cmTC_4ef56/fast"
-/usr/bin/make -f CMakeFiles/cmTC_4ef56.dir/build.make CMakeFiles/cmTC_4ef56.dir/build
-make[1]: se entra en el directorio '/home/briam-agudelo/Escritorio/VisionArtificial/proyectoVAE2/build/CMakeFiles/CMakeTmp'
-Building CXX object CMakeFiles/cmTC_4ef56.dir/feature_tests.cxx.o
-/usr/bin/c++    -std=c++14 -o CMakeFiles/cmTC_4ef56.dir/feature_tests.cxx.o -c /home/briam-agudelo/Escritorio/VisionArtificial/proyectoVAE2/build/CMakeFiles/feature_tests.cxx
-Linking CXX executable cmTC_4ef56
-/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_4ef56.dir/link.txt --verbose=1
-/usr/bin/c++       -rdynamic CMakeFiles/cmTC_4ef56.dir/feature_tests.cxx.o  -o cmTC_4ef56 
-make[1]: se sale del directorio '/home/briam-agudelo/Escritorio/VisionArtificial/proyectoVAE2/build/CMakeFiles/CMakeTmp'
+Run Build Command:"/usr/bin/make" "cmTC_935fd/fast"
+/usr/bin/make -f CMakeFiles/cmTC_935fd.dir/build.make CMakeFiles/cmTC_935fd.dir/build
+make[1]: se entra en el directorio '/home/brandonn/Documentos/visionArtificial/proyecto/VisionArtificial/proyectoVAE2/build/CMakeFiles/CMakeTmp'
+Building CXX object CMakeFiles/cmTC_935fd.dir/feature_tests.cxx.o
+/usr/bin/c++    -std=c++14 -o CMakeFiles/cmTC_935fd.dir/feature_tests.cxx.o -c /home/brandonn/Documentos/visionArtificial/proyecto/VisionArtificial/proyectoVAE2/build/CMakeFiles/feature_tests.cxx
+Linking CXX executable cmTC_935fd
+/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_935fd.dir/link.txt --verbose=1
+/usr/bin/c++       -rdynamic CMakeFiles/cmTC_935fd.dir/feature_tests.cxx.o  -o cmTC_935fd 
+make[1]: se sale del directorio '/home/brandonn/Documentos/visionArtificial/proyecto/VisionArtificial/proyectoVAE2/build/CMakeFiles/CMakeTmp'
 
 
     Feature record: CXX_FEATURE:1cxx_aggregate_default_initializers
@@ -490,17 +490,17 @@ make[1]: se sale del directorio '/home/briam-agudelo/Escritorio/VisionArtificial
 
 
 Detecting CXX [-std=c++11] compiler features compiled with the following output:
-Change Dir: /home/briam-agudelo/Escritorio/VisionArtificial/proyectoVAE2/build/CMakeFiles/CMakeTmp
+Change Dir: /home/brandonn/Documentos/visionArtificial/proyecto/VisionArtificial/proyectoVAE2/build/CMakeFiles/CMakeTmp
 
-Run Build Command:"/usr/bin/make" "cmTC_5bd19/fast"
-/usr/bin/make -f CMakeFiles/cmTC_5bd19.dir/build.make CMakeFiles/cmTC_5bd19.dir/build
-make[1]: se entra en el directorio '/home/briam-agudelo/Escritorio/VisionArtificial/proyectoVAE2/build/CMakeFiles/CMakeTmp'
-Building CXX object CMakeFiles/cmTC_5bd19.dir/feature_tests.cxx.o
-/usr/bin/c++    -std=c++11 -o CMakeFiles/cmTC_5bd19.dir/feature_tests.cxx.o -c /home/briam-agudelo/Escritorio/VisionArtificial/proyectoVAE2/build/CMakeFiles/feature_tests.cxx
-Linking CXX executable cmTC_5bd19
-/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_5bd19.dir/link.txt --verbose=1
-/usr/bin/c++       -rdynamic CMakeFiles/cmTC_5bd19.dir/feature_tests.cxx.o  -o cmTC_5bd19 
-make[1]: se sale del directorio '/home/briam-agudelo/Escritorio/VisionArtificial/proyectoVAE2/build/CMakeFiles/CMakeTmp'
+Run Build Command:"/usr/bin/make" "cmTC_4de3b/fast"
+/usr/bin/make -f CMakeFiles/cmTC_4de3b.dir/build.make CMakeFiles/cmTC_4de3b.dir/build
+make[1]: se entra en el directorio '/home/brandonn/Documentos/visionArtificial/proyecto/VisionArtificial/proyectoVAE2/build/CMakeFiles/CMakeTmp'
+Building CXX object CMakeFiles/cmTC_4de3b.dir/feature_tests.cxx.o
+/usr/bin/c++    -std=c++11 -o CMakeFiles/cmTC_4de3b.dir/feature_tests.cxx.o -c /home/brandonn/Documentos/visionArtificial/proyecto/VisionArtificial/proyectoVAE2/build/CMakeFiles/feature_tests.cxx
+Linking CXX executable cmTC_4de3b
+/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_4de3b.dir/link.txt --verbose=1
+/usr/bin/c++       -rdynamic CMakeFiles/cmTC_4de3b.dir/feature_tests.cxx.o  -o cmTC_4de3b 
+make[1]: se sale del directorio '/home/brandonn/Documentos/visionArtificial/proyecto/VisionArtificial/proyectoVAE2/build/CMakeFiles/CMakeTmp'
 
 
     Feature record: CXX_FEATURE:0cxx_aggregate_default_initializers
@@ -563,17 +563,17 @@ make[1]: se sale del directorio '/home/briam-agudelo/Escritorio/VisionArtificial
 
 
 Detecting CXX [-std=c++98] compiler features compiled with the following output:
-Change Dir: /home/briam-agudelo/Escritorio/VisionArtificial/proyectoVAE2/build/CMakeFiles/CMakeTmp
+Change Dir: /home/brandonn/Documentos/visionArtificial/proyecto/VisionArtificial/proyectoVAE2/build/CMakeFiles/CMakeTmp
 
-Run Build Command:"/usr/bin/make" "cmTC_608dc/fast"
-/usr/bin/make -f CMakeFiles/cmTC_608dc.dir/build.make CMakeFiles/cmTC_608dc.dir/build
-make[1]: se entra en el directorio '/home/briam-agudelo/Escritorio/VisionArtificial/proyectoVAE2/build/CMakeFiles/CMakeTmp'
-Building CXX object CMakeFiles/cmTC_608dc.dir/feature_tests.cxx.o
-/usr/bin/c++    -std=c++98 -o CMakeFiles/cmTC_608dc.dir/feature_tests.cxx.o -c /home/briam-agudelo/Escritorio/VisionArtificial/proyectoVAE2/build/CMakeFiles/feature_tests.cxx
-Linking CXX executable cmTC_608dc
-/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_608dc.dir/link.txt --verbose=1
-/usr/bin/c++       -rdynamic CMakeFiles/cmTC_608dc.dir/feature_tests.cxx.o  -o cmTC_608dc 
-make[1]: se sale del directorio '/home/briam-agudelo/Escritorio/VisionArtificial/proyectoVAE2/build/CMakeFiles/CMakeTmp'
+Run Build Command:"/usr/bin/make" "cmTC_54035/fast"
+/usr/bin/make -f CMakeFiles/cmTC_54035.dir/build.make CMakeFiles/cmTC_54035.dir/build
+make[1]: se entra en el directorio '/home/brandonn/Documentos/visionArtificial/proyecto/VisionArtificial/proyectoVAE2/build/CMakeFiles/CMakeTmp'
+Building CXX object CMakeFiles/cmTC_54035.dir/feature_tests.cxx.o
+/usr/bin/c++    -std=c++98 -o CMakeFiles/cmTC_54035.dir/feature_tests.cxx.o -c /home/brandonn/Documentos/visionArtificial/proyecto/VisionArtificial/proyectoVAE2/build/CMakeFiles/feature_tests.cxx
+Linking CXX executable cmTC_54035
+/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_54035.dir/link.txt --verbose=1
+/usr/bin/c++       -rdynamic CMakeFiles/cmTC_54035.dir/feature_tests.cxx.o  -o cmTC_54035 
+make[1]: se sale del directorio '/home/brandonn/Documentos/visionArtificial/proyecto/VisionArtificial/proyectoVAE2/build/CMakeFiles/CMakeTmp'
 
 
     Feature record: CXX_FEATURE:0cxx_aggregate_default_initializers

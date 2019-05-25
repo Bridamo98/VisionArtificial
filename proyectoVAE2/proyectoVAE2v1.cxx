@@ -211,53 +211,62 @@ void comparar(map<int,int> mapa){
 	Mat image, plantilla;
 	float aux;
 	int cont=0;
-	
-	for (int i = 0; i < tam; i++) {
+
+	for (int i = 0; i < IDe; i++) {
 		conincidencia[i][0] = -1.0;
 	}
-	cout << "tam="<<tam<<endl;
-	for (int i = 0; i < tam; i++) {
+	cout << "tam="<<IDe<<endl;
+	for (int i = 0; i < IDe; i++) {
 		conincidencia[i][1] = -1.0;
-		
-		auto it=mapa.find(i+1);
-		if(it->second != 0){
-			image = imread( to_string(cont) + "_resultado.png", 1 );
-			
-			cout << "-----"<<cont<<endl;
-			cont++;
-			for (int j = 0; j < 28; j++) {
+
+			image = imread( to_string(i) + "_resultado.png", 1 );
+
+			cout << "-----"<<i<<endl;
+
+			for (int j = 0; j < 29; j++) {
 				Mat res_img;
 				plantilla = imread( to_string(j) + "_plantilla.png", IMREAD_GRAYSCALE );
-				mostrarImagen(plantilla,1);
-				resize(image, res_img, Size(),(double)(plantilla.rows)/image.rows,(double)(plantilla.rows)/image.rows, INTER_LINEAR);
+				//mostrarImagen(image,1);
+				double nx, ny;
+				nx = (plantilla.rows*1.)/(image.rows*1.);
+				ny = (plantilla.cols*1.)/(image.cols*1.);
+				resize(image, res_img, Size(), nx, ny, INTER_AREA);
+				//mostrarImagen(res_img,2);
 				aux = calificarDif(res_img, plantilla);
 				if(aux > conincidencia[i][0]){
 					conincidencia[i][0] = aux;
 					conincidencia[i][1] = (float)(j);
+					cout << "plantilla " << j << endl;
 				}
 			}
-		}
+
 	}
-	for (int i = 0; i < tam; i++) {
-		cout << "Coincidencia " << conincidencia[i][1] << endl;
+	for (int i = 0; i < IDe; i++) {
+		cout << "Coincidencia " << i << " " << conincidencia[i][1] << endl;
 	}
 }
+
 float calificarDif(Mat image, Mat plantilla){
+	//cout << "dimensiones" << endl;
+	//cout << image.rows << " " << plantilla.rows << " " << image.cols << " " << plantilla.cols << endl;
+	mostrarImagen(image,1);
+	mostrarImagen(plantilla,2);
 	float rest = 0;
-	for (size_t i = 0; i < image.rows; i++)
+	for (int i = 0; i < image.rows; i++)
 	{
-	    for (size_t j = 0; j < image.cols; j++)
+	    for (int j = 0; j < image.cols; j++)
 	    {
-			if(image.at<uchar>(i, j) =! 0 && plantilla.at<uchar>(i, j) !=0){
-				rest+=1.0;
-			}
-			if((image.at<uchar>(i, j) == 0 && plantilla.at<uchar>(i, j) !=0)||(image.at<uchar>(i, j) != 0 && plantilla.at<uchar>(i, j) ==0)){
-				rest-=0.5;
-			}
-	      }
+				if(image.at<uchar>(i, j) =! 0 && plantilla.at<uchar>(i, j) !=0){
+					rest+=1.0;
+				}
+				if((image.at<uchar>(i, j) == 0 && plantilla.at<uchar>(i, j) !=0)||(image.at<uchar>(i, j) != 0 && plantilla.at<uchar>(i, j) ==0)){
+					rest-=1.0;
+				}
+	    }
 	}
 	return(rest);
 }
+
 Mat filtro(Mat image, int kernelSize){
 	Mat dst, kernel;
 	Point anchor;
@@ -482,7 +491,7 @@ void crearMatriz(Mat image, int supf, int inff, int supc, int infc, int ident){
 		ii++;
 	}
 	IDe++;
-	imwrite( to_string(ident) + "_resultado.png", resimg);
+	imwrite( to_string(IDe) + "_resultado.png", resimg);
 }
 
 //histograma<intensidad, cantidad>

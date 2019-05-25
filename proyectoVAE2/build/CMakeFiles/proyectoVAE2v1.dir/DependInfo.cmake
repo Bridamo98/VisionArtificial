@@ -4,7 +4,7 @@ set(CMAKE_DEPENDS_LANGUAGES
   )
 # The set of files for implicit dependencies of each language:
 set(CMAKE_DEPENDS_CHECK_CXX
-  "/home/briam-agudelo/Escritorio/VisionArtificial/proyectoVAE2/proyectoVAE2v1.cxx" "/home/briam-agudelo/Escritorio/VisionArtificial/proyectoVAE2/build/CMakeFiles/proyectoVAE2v1.dir/proyectoVAE2v1.cxx.o"
+  "/home/brandonn/Documentos/visionArtificial/proyecto/VisionArtificial/proyectoVAE2/proyectoVAE2v1.cxx" "/home/brandonn/Documentos/visionArtificial/proyecto/VisionArtificial/proyectoVAE2/build/CMakeFiles/proyectoVAE2v1.dir/proyectoVAE2v1.cxx.o"
   )
 set(CMAKE_CXX_COMPILER_ID "GNU")
 
@@ -16,7 +16,7 @@ set(CMAKE_TARGET_DEFINITIONS_CXX
 # The include file search paths:
 set(CMAKE_CXX_TARGET_INCLUDE_PATH
   "ITKFactoryRegistration"
-  "/usr/local/include/ITK-4.13"
+  "/usr/local/include/ITK-5.0"
   "/usr/local/include/opencv4"
   )
 
