@@ -223,20 +223,26 @@ void comparar(map<int,int> mapa){
 
 			cout << "-----"<<i<<endl;
 
-			for (int j = 0; j < 29; j++) {
-				Mat res_img;
+			for (int j = 0; j < 28; j++) {
+				Mat res_img, res_img2;
 				plantilla = imread( to_string(j) + "_plantilla.png", IMREAD_GRAYSCALE );
 				//mostrarImagen(image,1);
-				double nx, ny;
-				nx = (plantilla.rows*1.)/(image.rows*1.);
-				ny = (plantilla.cols*1.)/(image.cols*1.);
-				resize(image, res_img, Size(), nx, ny, INTER_AREA);
-				//mostrarImagen(res_img,2);
-				aux = calificarDif(res_img, plantilla);
+				double nx, ny, nx2, ny2;
+				//nx = (image.rows*1.)/(plantilla.rows*1.);
+				//ny = (image.cols*1.)/(plantilla.cols*1.);
+				nx = (50.0)/(plantilla.rows*1.);
+				ny = (50.0)/(plantilla.cols*1.);
+				nx2 = (50.0)/(image.rows*1.);
+				ny2 = (50.0)/(image.cols*1.);
+				resize(plantilla, res_img, Size(), nx, ny, INTER_LINEAR);
+				resize(image, res_img2, Size(), nx2, ny2, INTER_LINEAR);
+				aux = calificarDif(res_img2, res_img);
+				mostrarImagen(res_img2, 1);
+				mostrarImagen(res_img, 2);
+				cout << i << " con " << j << " da " << aux << endl;
 				if(aux > conincidencia[i][0]){
 					conincidencia[i][0] = aux;
 					conincidencia[i][1] = (float)(j);
-					cout << "plantilla " << j << endl;
 				}
 			}
 
@@ -249,17 +255,29 @@ void comparar(map<int,int> mapa){
 float calificarDif(Mat image, Mat plantilla){
 	//cout << "dimensiones" << endl;
 	//cout << image.rows << " " << plantilla.rows << " " << image.cols << " " << plantilla.cols << endl;
-	mostrarImagen(image,1);
-	mostrarImagen(plantilla,2);
 	float rest = 0;
-	for (int i = 0; i < image.rows; i++)
+
+	int minf, minc;
+	if(image.rows < plantilla.rows)
+		minf = image.rows;
+	else
+		minf = plantilla.rows;
+
+	if(image.cols < plantilla.cols)
+		minc = image.cols;
+	else
+		minc = plantilla.cols;
+
+	for (int i = 0; i < minf; i++)
 	{
-	    for (int j = 0; j < image.cols; j++)
+	    for (int j = 0; j < minc; j++)
 	    {
-				if(image.at<uchar>(i, j) =! 0 && plantilla.at<uchar>(i, j) !=0){
+				int valimage = (int)(image.at<uchar>(i, j));
+				int valplantilla = (int)(plantilla.at<uchar>(i, j));
+				if( (valimage != 0 && valplantilla != 0) || valimage == valplantilla ){
 					rest+=1.0;
 				}
-				if((image.at<uchar>(i, j) == 0 && plantilla.at<uchar>(i, j) !=0)||(image.at<uchar>(i, j) != 0 && plantilla.at<uchar>(i, j) ==0)){
+				else{
 					rest-=1.0;
 				}
 	    }
