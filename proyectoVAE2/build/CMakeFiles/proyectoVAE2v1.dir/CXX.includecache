@@ -21,8 +21,6 @@ queue
 -
 stdlib.h
 -
-time.h
--
 unistd.h
 -
 iterator
@@ -31,16 +29,14 @@ map
 -
 math.h
 -
+limits
+-
 opencv2/opencv.hpp
 -
 opencv2/highgui/highgui.hpp
 -
 opencv2/imgproc/imgproc.hpp
 -
-opencv2/highgui/highgui.hpp
-/home/brandonn/Documentos/visionArtificial/proyecto/VisionArtificial/proyectoVAE2/opencv2/highgui/highgui.hpp
-opencv2/imgproc/imgproc.hpp
-/home/brandonn/Documentos/visionArtificial/proyecto/VisionArtificial/proyectoVAE2/opencv2/imgproc/imgproc.hpp
 
 /usr/local/include/opencv4/opencv2/calib3d.hpp
 opencv2/core.hpp
