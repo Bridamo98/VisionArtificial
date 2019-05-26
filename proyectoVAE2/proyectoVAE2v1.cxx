@@ -56,7 +56,7 @@ void descarteDeRegiones(Mat &intermedia,map<int,int > &mapa,Mat &image);
 Mat ajusteDeIntensidades( Mat intermedia, int cantRegiones);
 void centros(Mat dist, Mat intermedia, map<int, int> mapa, Mat image);
 float calificarDif(Mat image, Mat plantilla);
-void comparar(map<int,int> mapa);
+void comparar();
 void mostrarImagen(Mat image, int num){
 	String s = to_string(num);
 	namedWindow("Window " + s, WINDOW_NORMAL);
@@ -117,9 +117,9 @@ int main(int argc, char** argv )
   erode(res_img, res_img, kernel);
 	dilate(res_img, res_img, kernel);
 	//dilate(res_img, res_img, kernel);
-	erode(res_img, res_img, kernel);
-	erode(res_img, res_img, kernel);
-	erode(res_img, res_img, kernel);
+	//erode(res_img, res_img, kernel);
+	//erode(res_img, res_img, kernel);
+	//erode(res_img, res_img, kernel);
 
 	//GaussianBlur(res_img, res_img, Size(33, 33), 0);
 	GaussianBlur(res_img, res_img, Size(11, 11), 0);
@@ -129,8 +129,8 @@ int main(int argc, char** argv )
 
 
 	//Segmentación
-	res_img = resaltarTableroFilas(res_img);
-	res_img = resaltarTableroColumnas(res_img);
+	//res_img = resaltarTableroFilas(res_img);
+	//res_img = resaltarTableroColumnas(res_img);
 	threshold(res_img, res_img, 177, 255, THRESH_BINARY_INV);
 
 	intermedia = etiquetado(res_img, basename, mapa);
@@ -145,7 +145,7 @@ int main(int argc, char** argv )
 	imwrite( basename + "_dist.png", dist );
 
 	//segmentacion(res_img, 0, res_img.rows, 0, res_img.cols);
-	comparar(mapa);
+	comparar();
 
 	//Escribir imagen
 	imwrite( basename + "_resultado.png", res_img );
@@ -205,56 +205,54 @@ Mat binarizacion(Mat image){
 }
 */
 
-void comparar(map<int,int> mapa){
-	int tam=mapa.size();
-	float conincidencia[tam][2];
-	Mat image, plantilla;
-	float aux;
-	int cont=0;
+void comparar(){
+	float resultados[IDe][2];
 
 	for (int i = 0; i < IDe; i++) {
-		conincidencia[i][0] = -1.0;
+		resultados[i][0] = -99999.0;
+		resultados[i][1] = -99999.0;
 	}
-	cout << "tam="<<IDe<<endl;
+
 	for (int i = 0; i < IDe; i++) {
-		conincidencia[i][1] = -1.0;
 
-			image = imread( to_string(i) + "_resultado.png", 1 );
+		Mat image;
+		int aux;
+		image = imread( to_string(i) + "_resultado.png", 1 );
+		for (int j = 0; j < 167; j++) {
 
-			cout << "-----"<<i<<endl;
 
-			for (int j = 0; j < 28; j++) {
-				Mat res_img, res_img2;
-				plantilla = imread( to_string(j) + "_plantilla.png", IMREAD_GRAYSCALE );
-				//mostrarImagen(image,1);
+				Mat plantilla;
+				plantilla = imread( to_string(j) + "_plantilla.png", 1 );
+
+				Mat dst, dst2;
+
 				double nx, ny, nx2, ny2;
-				//nx = (image.rows*1.)/(plantilla.rows*1.);
-				//ny = (image.cols*1.)/(plantilla.cols*1.);
 				nx = (50.0)/(plantilla.rows*1.);
 				ny = (50.0)/(plantilla.cols*1.);
 				nx2 = (50.0)/(image.rows*1.);
 				ny2 = (50.0)/(image.cols*1.);
-				resize(plantilla, res_img, Size(), nx, ny, INTER_LINEAR);
-				resize(image, res_img2, Size(), nx2, ny2, INTER_LINEAR);
-				aux = calificarDif(res_img2, res_img);
-				mostrarImagen(res_img2, 1);
-				mostrarImagen(res_img, 2);
-				cout << i << " con " << j << " da " << aux << endl;
-				if(aux > conincidencia[i][0]){
-					conincidencia[i][0] = aux;
-					conincidencia[i][1] = (float)(j);
+				resize(plantilla, dst, Size(), nx, ny, INTER_LINEAR);
+				resize(image, dst2, Size(), nx2, ny2, INTER_LINEAR);
+				aux = calificarDif(dst2,dst);
+				//cout << aux << endl;
+				if(aux > resultados[i][0]){
+					resultados[i][0] = aux;
+					resultados[i][1] = j;
 				}
-			}
+		}
 
 	}
+
 	for (int i = 0; i < IDe; i++) {
-		cout << "Coincidencia " << i << " " << conincidencia[i][1] << endl;
+		cout << "Se emparejó " << i << " con " << resultados[i][1] << " con un valor de " << resultados[i][0] << endl;
 	}
 }
 
 float calificarDif(Mat image, Mat plantilla){
 	//cout << "dimensiones" << endl;
 	//cout << image.rows << " " << plantilla.rows << " " << image.cols << " " << plantilla.cols << endl;
+	//mostrarImagen(image,1);
+	//mostrarImagen(plantilla,2);
 	float rest = 0;
 
 	int minf, minc;
@@ -272,14 +270,18 @@ float calificarDif(Mat image, Mat plantilla){
 	{
 	    for (int j = 0; j < minc; j++)
 	    {
+
 				int valimage = (int)(image.at<uchar>(i, j));
 				int valplantilla = (int)(plantilla.at<uchar>(i, j));
-				if( (valimage != 0 && valplantilla != 0) || valimage == valplantilla ){
+				if( (valimage != 0 && valplantilla != 0) ){
 					rest+=1.0;
 				}
-				else{
-					rest-=1.0;
+				else if(valimage == 0 && valplantilla == 0){
+					rest+=1.0;
+				}else if(valimage != 0 && valplantilla == 0){
+					rest-=2.0;
 				}
+
 	    }
 	}
 	return(rest);
@@ -508,8 +510,8 @@ void crearMatriz(Mat image, int supf, int inff, int supc, int infc, int ident){
 		jj = 0;
 		ii++;
 	}
-	IDe++;
 	imwrite( to_string(IDe) + "_resultado.png", resimg);
+	IDe++;
 }
 
 //histograma<intensidad, cantidad>
