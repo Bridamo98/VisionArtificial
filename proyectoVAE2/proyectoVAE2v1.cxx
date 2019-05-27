@@ -1,7 +1,9 @@
 #include <stdio.h>
 #include <map>
 #include <sstream>
+#include <string>
 #include <iostream>
+#include <fstream>
 #include <cstdlib>
 #include <queue>
 #include <stdlib.h>
@@ -34,7 +36,7 @@ const int kernelSize = 15;
 const float proportion = 0.65;
 int IDe = 0;
 
-void comparar();
+void comparar(Coord* coordCentros);
 float calificarDif(Mat image, Mat plantilla);
 Mat resaltarTableroFilas(Mat image);
 Mat resaltarTableroColumnas(Mat image);
@@ -44,8 +46,7 @@ Mat etiquetado(Mat image, String basename,map<int,int> &mapa);
 void descarteDeRegiones(Mat &intermedia,map<int,int > &mapa,Mat &image);
 Mat ajusteDeIntensidades( Mat intermedia, int cantRegiones);
 void revisarVecinos(Coord aux, queue<Coord> &cola, Mat &intermedia, Mat image, map<int, int> &mapa, int contador, int &contadorPixeles);
-void centros(Mat dist, Mat intermedia, map<int, int> mapa, Mat image);
-
+void segmentar(Mat dist, Mat intermedia, map<int, int> mapa, Mat image, Coord* coordCentros);
 void mostrarImagen(Mat image, int num){
 	String s = to_string(num);
 	namedWindow("Window " + s, WINDOW_NORMAL);
@@ -99,8 +100,10 @@ int main(int argc, char** argv )
 	threshold(res_img, res_img, 177, 255, THRESH_OTSU);
 
 	kernel = getStructuringElement(MORPH_ELLIPSE, Size(5, 5));
-	erode(res_img, res_img, kernel);
-	dilate(res_img, res_img, kernel);
+	{//APERTURA
+		erode(res_img, res_img, kernel);
+		dilate(res_img, res_img, kernel);	
+	}
 	//dilate(res_img, res_img, kernel);
 	//erode(res_img, res_img, kernel);
 	//erode(res_img, res_img, kernel);
@@ -123,9 +126,10 @@ int main(int argc, char** argv )
 	ajustada = ajusteDeIntensidades(intermedia, mapa.size());
 
 	distanceTransform(res_img, dist, DIST_L2, 3);
-	centros(dist, intermedia, mapa, ajustada);
+	Coord* coordCentros=new Coord[mapa.size()];
+	segmentar(dist, intermedia, mapa, ajustada, coordCentros);
 
-	comparar();
+	comparar(coordCentros);
 
 	//Escribir imagen
 	imwrite( basename + "_resultado.png", res_img );
@@ -135,7 +139,9 @@ int main(int argc, char** argv )
 	return( 0 );
 }
 
-void comparar(){
+void comparar(Coord* coordCentros){
+	
+
 	float resultados[IDe][2];
 
 	for (int i = 0; i < IDe; i++) {
@@ -175,6 +181,34 @@ void comparar(){
 	for (int i = 0; i < IDe; i++) {
 		cout << "Se emparejó " << i << " con " << resultados[i][1] << " con un valor de " << resultados[i][0] << endl;
 	}
+
+	/*Producir el texto*/
+	stringstream finalText;
+
+	ifstream infile("plantillas.txt");
+	string line;
+	while (getline(infile, line))
+	{
+	    istringstream iss(line);
+	    int num;
+	    string let;
+	    if (!(iss >> num >> let)) {break; } // error
+	    for (int i = 0; i < IDe; i++) {
+			if(resultados[i][1] == num){
+				finalText<<let;
+			}
+		}
+	}
+	cout<<endl;
+	cout << "La respuesta final es: "<<finalText.str()<<endl;
+	infile.close();
+
+	ofstream myfile ("result.txt");
+  	if (myfile.is_open())
+  	{
+	    myfile <<finalText.str();
+	    myfile.close();
+  	}
 }
 
 float calificarDif(Mat image, Mat plantilla){
@@ -392,7 +426,7 @@ void revisarVecinos(Coord aux, queue<Coord> &cola, Mat &intermedia, Mat image, m
 	}
 }
 
-void centros(Mat dist, Mat intermedia, map<int, int> mapa, Mat image){
+void segmentar(Mat dist, Mat intermedia, map<int, int> mapa, Mat image, Coord* coordCentros){
 	map<int, Coord> mapaCentros;
 	map<int, Bordes> mapaBordes;
 
@@ -442,13 +476,14 @@ void centros(Mat dist, Mat intermedia, map<int, int> mapa, Mat image){
 			mapaBordes.insert({it->first, bordes});
 		}
 	}
-/*
-   for (map<int,Coord>::iterator it=mapaCentros.begin(); it!=mapaCentros.end(); ++it) {
-    cout << "Para la region " << it->first << " el centro está en la fila "
-         << it->second.x << " columna " << it->second.y << endl;
+
+   /*for (map<int,Coord>::iterator it=mapaCentros.begin(); it!=mapaCentros.end(); ++it) {
+    	cout << "Para la region " << it->first << " el centro está en la fila "
+        << it->second.x << " columna " << it->second.y << endl;
    }*/
 
 	for (map<int,Bordes>::iterator it=mapaBordes.begin(); it!=mapaBordes.end(); ++it) {
 		crearMatriz(image, it->second.sf, it->second.inf, it->second.sc, it->second.ic, IDe);
+		coordCentros[IDe-1]=(Coord)(mapaCentros.find(it->first)->second);
 	}
 }

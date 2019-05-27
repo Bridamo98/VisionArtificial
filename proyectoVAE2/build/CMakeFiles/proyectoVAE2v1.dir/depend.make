@@ -38,6 +38,7 @@ CMakeFiles/proyectoVAE2v1.dir/proyectoVAE2v1.cxx.o: /usr/local/include/opencv4/o
 CMakeFiles/proyectoVAE2v1.dir/proyectoVAE2v1.cxx.o: /usr/local/include/opencv4/opencv2/dnn/dnn.hpp
 CMakeFiles/proyectoVAE2v1.dir/proyectoVAE2v1.cxx.o: /usr/local/include/opencv4/opencv2/dnn/dnn.inl.hpp
 CMakeFiles/proyectoVAE2v1.dir/proyectoVAE2v1.cxx.o: /usr/local/include/opencv4/opencv2/dnn/layer.hpp
+CMakeFiles/proyectoVAE2v1.dir/proyectoVAE2v1.cxx.o: /usr/local/include/opencv4/opencv2/dnn/utils/inference_engine.hpp
 CMakeFiles/proyectoVAE2v1.dir/proyectoVAE2v1.cxx.o: /usr/local/include/opencv4/opencv2/dnn/version.hpp
 CMakeFiles/proyectoVAE2v1.dir/proyectoVAE2v1.cxx.o: /usr/local/include/opencv4/opencv2/features2d.hpp
 CMakeFiles/proyectoVAE2v1.dir/proyectoVAE2v1.cxx.o: /usr/local/include/opencv4/opencv2/flann.hpp

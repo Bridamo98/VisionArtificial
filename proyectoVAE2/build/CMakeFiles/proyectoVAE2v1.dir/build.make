@@ -43,10 +43,10 @@ RM = /usr/bin/cmake -E remove -f
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /home/brandonn/Documentos/visionArtificial/proyecto/VisionArtificial/proyectoVAE2
+CMAKE_SOURCE_DIR = /home/briam-agudelo/Escritorio/VisionArtificial/proyectoVAE2
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /home/brandonn/Documentos/visionArtificial/proyecto/VisionArtificial/proyectoVAE2/build
+CMAKE_BINARY_DIR = /home/briam-agudelo/Escritorio/VisionArtificial/proyectoVAE2/build
 
 # Include any dependencies generated for this target.
 include CMakeFiles/proyectoVAE2v1.dir/depend.make
@@ -59,16 +59,16 @@ include CMakeFiles/proyectoVAE2v1.dir/flags.make
 
 CMakeFiles/proyectoVAE2v1.dir/proyectoVAE2v1.cxx.o: CMakeFiles/proyectoVAE2v1.dir/flags.make
 CMakeFiles/proyectoVAE2v1.dir/proyectoVAE2v1.cxx.o: ../proyectoVAE2v1.cxx
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/brandonn/Documentos/visionArtificial/proyecto/VisionArtificial/proyectoVAE2/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Building CXX object CMakeFiles/proyectoVAE2v1.dir/proyectoVAE2v1.cxx.o"
-	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/proyectoVAE2v1.dir/proyectoVAE2v1.cxx.o -c /home/brandonn/Documentos/visionArtificial/proyecto/VisionArtificial/proyectoVAE2/proyectoVAE2v1.cxx
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/briam-agudelo/Escritorio/VisionArtificial/proyectoVAE2/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Building CXX object CMakeFiles/proyectoVAE2v1.dir/proyectoVAE2v1.cxx.o"
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/proyectoVAE2v1.dir/proyectoVAE2v1.cxx.o -c /home/briam-agudelo/Escritorio/VisionArtificial/proyectoVAE2/proyectoVAE2v1.cxx
 
 CMakeFiles/proyectoVAE2v1.dir/proyectoVAE2v1.cxx.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/proyectoVAE2v1.dir/proyectoVAE2v1.cxx.i"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/brandonn/Documentos/visionArtificial/proyecto/VisionArtificial/proyectoVAE2/proyectoVAE2v1.cxx > CMakeFiles/proyectoVAE2v1.dir/proyectoVAE2v1.cxx.i
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/briam-agudelo/Escritorio/VisionArtificial/proyectoVAE2/proyectoVAE2v1.cxx > CMakeFiles/proyectoVAE2v1.dir/proyectoVAE2v1.cxx.i
 
 CMakeFiles/proyectoVAE2v1.dir/proyectoVAE2v1.cxx.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/proyectoVAE2v1.dir/proyectoVAE2v1.cxx.s"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/brandonn/Documentos/visionArtificial/proyecto/VisionArtificial/proyectoVAE2/proyectoVAE2v1.cxx -o CMakeFiles/proyectoVAE2v1.dir/proyectoVAE2v1.cxx.s
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/briam-agudelo/Escritorio/VisionArtificial/proyectoVAE2/proyectoVAE2v1.cxx -o CMakeFiles/proyectoVAE2v1.dir/proyectoVAE2v1.cxx.s
 
 CMakeFiles/proyectoVAE2v1.dir/proyectoVAE2v1.cxx.o.requires:
 
@@ -92,21 +92,21 @@ proyectoVAE2v1: CMakeFiles/proyectoVAE2v1.dir/proyectoVAE2v1.cxx.o
 proyectoVAE2v1: CMakeFiles/proyectoVAE2v1.dir/build.make
 proyectoVAE2v1: /usr/local/lib/libopencv_dnn.so.4.1.0
 proyectoVAE2v1: /usr/local/lib/libopencv_gapi.so.4.1.0
+proyectoVAE2v1: /usr/local/lib/libopencv_highgui.so.4.1.0
 proyectoVAE2v1: /usr/local/lib/libopencv_ml.so.4.1.0
 proyectoVAE2v1: /usr/local/lib/libopencv_objdetect.so.4.1.0
 proyectoVAE2v1: /usr/local/lib/libopencv_photo.so.4.1.0
 proyectoVAE2v1: /usr/local/lib/libopencv_stitching.so.4.1.0
 proyectoVAE2v1: /usr/local/lib/libopencv_video.so.4.1.0
+proyectoVAE2v1: /usr/local/lib/libopencv_videoio.so.4.1.0
+proyectoVAE2v1: /usr/local/lib/libopencv_imgcodecs.so.4.1.0
 proyectoVAE2v1: /usr/local/lib/libopencv_calib3d.so.4.1.0
 proyectoVAE2v1: /usr/local/lib/libopencv_features2d.so.4.1.0
 proyectoVAE2v1: /usr/local/lib/libopencv_flann.so.4.1.0
-proyectoVAE2v1: /usr/local/lib/libopencv_highgui.so.4.1.0
-proyectoVAE2v1: /usr/local/lib/libopencv_videoio.so.4.1.0
-proyectoVAE2v1: /usr/local/lib/libopencv_imgcodecs.so.4.1.0
 proyectoVAE2v1: /usr/local/lib/libopencv_imgproc.so.4.1.0
 proyectoVAE2v1: /usr/local/lib/libopencv_core.so.4.1.0
 proyectoVAE2v1: CMakeFiles/proyectoVAE2v1.dir/link.txt
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/home/brandonn/Documentos/visionArtificial/proyecto/VisionArtificial/proyectoVAE2/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Linking CXX executable proyectoVAE2v1"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/home/briam-agudelo/Escritorio/VisionArtificial/proyectoVAE2/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Linking CXX executable proyectoVAE2v1"
 	$(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/proyectoVAE2v1.dir/link.txt --verbose=$(VERBOSE)
 
 # Rule to build all files generated by this target.
@@ -123,6 +123,6 @@ CMakeFiles/proyectoVAE2v1.dir/clean:
 .PHONY : CMakeFiles/proyectoVAE2v1.dir/clean
 
 CMakeFiles/proyectoVAE2v1.dir/depend:
-	cd /home/brandonn/Documentos/visionArtificial/proyecto/VisionArtificial/proyectoVAE2/build && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /home/brandonn/Documentos/visionArtificial/proyecto/VisionArtificial/proyectoVAE2 /home/brandonn/Documentos/visionArtificial/proyecto/VisionArtificial/proyectoVAE2 /home/brandonn/Documentos/visionArtificial/proyecto/VisionArtificial/proyectoVAE2/build /home/brandonn/Documentos/visionArtificial/proyecto/VisionArtificial/proyectoVAE2/build /home/brandonn/Documentos/visionArtificial/proyecto/VisionArtificial/proyectoVAE2/build/CMakeFiles/proyectoVAE2v1.dir/DependInfo.cmake --color=$(COLOR)
+	cd /home/briam-agudelo/Escritorio/VisionArtificial/proyectoVAE2/build && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /home/briam-agudelo/Escritorio/VisionArtificial/proyectoVAE2 /home/briam-agudelo/Escritorio/VisionArtificial/proyectoVAE2 /home/briam-agudelo/Escritorio/VisionArtificial/proyectoVAE2/build /home/briam-agudelo/Escritorio/VisionArtificial/proyectoVAE2/build /home/briam-agudelo/Escritorio/VisionArtificial/proyectoVAE2/build/CMakeFiles/proyectoVAE2v1.dir/DependInfo.cmake --color=$(COLOR)
 .PHONY : CMakeFiles/proyectoVAE2v1.dir/depend
 
