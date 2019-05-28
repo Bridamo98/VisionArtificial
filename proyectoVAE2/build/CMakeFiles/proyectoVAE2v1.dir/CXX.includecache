@@ -6,7 +6,7 @@
 
 #IncludeRegexTransform: 
 
-/home/briam-agudelo/Escritorio/VisionArtificial/proyectoVAE2/proyectoVAE2v1.cxx
+/home/brandonn/Documentos/visionArtificial/proyecto/VisionArtificial/proyectoVAE2/proyectoVAE2v1.cxx
 stdio.h
 -
 map
@@ -377,8 +377,6 @@ vector
 -
 opencv2/core.hpp
 -
-future
--
 ../dnn/version.hpp
 /usr/local/include/opencv4/opencv2/dnn/version.hpp
 opencv2/dnn/dict.hpp
@@ -386,8 +384,6 @@ opencv2/dnn/dict.hpp
 opencv2/dnn/layer.hpp
 -
 opencv2/dnn/dnn.inl.hpp
--
-opencv2/dnn/utils/inference_engine.hpp
 -
 
 /usr/local/include/opencv4/opencv2/dnn/dnn.inl.hpp
@@ -397,10 +393,6 @@ opencv2/dnn.hpp
 /usr/local/include/opencv4/opencv2/dnn/layer.hpp
 opencv2/dnn.hpp
 -
-
-/usr/local/include/opencv4/opencv2/dnn/utils/inference_engine.hpp
-../dnn.hpp
-/usr/local/include/opencv4/opencv2/dnn/dnn.hpp
 
 /usr/local/include/opencv4/opencv2/dnn/version.hpp
 

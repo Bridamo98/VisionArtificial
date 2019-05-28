@@ -93,19 +93,18 @@ int main(int argc, char** argv )
 	Mat ajustada, dist;
 	map<int,int> mapa;
 
-	int thres = 180, max = 255;
 	res_img = blancoNegro(image);
 
-	threshold(res_img, res_img, thres, max, 2);
 	threshold(res_img, res_img, 177, 255, THRESH_OTSU);
 
 	kernel = getStructuringElement(MORPH_ELLIPSE, Size(5, 5));
 	{//APERTURA
 		erode(res_img, res_img, kernel);
-		dilate(res_img, res_img, kernel);	
+		dilate(res_img, res_img, kernel);
 	}
+
 	//dilate(res_img, res_img, kernel);
-	//erode(res_img, res_img, kernel);
+	erode(res_img, res_img, kernel);
 	//erode(res_img, res_img, kernel);
 	//erode(res_img, res_img, kernel);
 
@@ -116,8 +115,15 @@ int main(int argc, char** argv )
 	threshold(res_img, res_img, 177, 255, THRESH_OTSU);
 
 	//Segmentación
-	//res_img = resaltarTableroFilas(res_img);
-	//res_img = resaltarTableroColumnas(res_img);
+	char respuesta;
+	cout << "¿Hay superficies externas al tablero?(s/n)" << endl;
+	do{
+			cin >> respuesta;
+	}while(respuesta!='s' && respuesta!='n');
+	if(respuesta == 's'){
+		res_img = resaltarTableroFilas(res_img);
+		res_img = resaltarTableroColumnas(res_img);
+	}
 	threshold(res_img, res_img, 177, 255, THRESH_BINARY_INV);
 
 	intermedia = etiquetado(res_img, basename, mapa);
@@ -131,16 +137,11 @@ int main(int argc, char** argv )
 
 	comparar(coordCentros);
 
-	//Escribir imagen
-	imwrite( basename + "_resultado.png", res_img );
-	imwrite( basename + "_ajustada.png", ajustada );
-	imwrite( basename + "_dist.png", dist );
-
 	return( 0 );
 }
 
 void comparar(Coord* coordCentros){
-	
+
 
 	float resultados[IDe][2];
 
@@ -177,7 +178,8 @@ void comparar(Coord* coordCentros){
 		}
 
 	}
-
+	int nuevoIDe[IDe][2];
+	int count = 0, count2 = 0;
 	for (int i = 0; i < IDe; i++) {
 		cout << "Se emparejó " << i << " con " << resultados[i][1] << " con un valor de " << resultados[i][0] << endl;
 	}
@@ -187,28 +189,32 @@ void comparar(Coord* coordCentros){
 
 	ifstream infile("plantillas.txt");
 	string line;
-	while (getline(infile, line))
-	{
-	    istringstream iss(line);
-	    int num;
-	    string let;
-	    if (!(iss >> num >> let)) {break; } // error
-	    for (int i = 0; i < IDe; i++) {
-			if(resultados[i][1] == num){
+
+	for (int i = 0; i < IDe; i++) {
+
+		while (getline(infile, line))
+		{
+			istringstream iss(line);
+			int num;
+			string let;
+			if (!(iss >> num >> let)) {break; }     // error
+			if(resultados[i][1] == num) {
 				finalText<<let;
 			}
 		}
+		infile.close();
+		infile.open("plantillas.txt");
 	}
 	cout<<endl;
 	cout << "La respuesta final es: "<<finalText.str()<<endl;
 	infile.close();
 
 	ofstream myfile ("result.txt");
-  	if (myfile.is_open())
-  	{
-	    myfile <<finalText.str();
-	    myfile.close();
-  	}
+	if (myfile.is_open())
+	{
+		myfile <<finalText.str();
+		myfile.close();
+	}
 }
 
 float calificarDif(Mat image, Mat plantilla){
@@ -432,7 +438,7 @@ void segmentar(Mat dist, Mat intermedia, map<int, int> mapa, Mat image, Coord* c
 
 	for (map<int,int>::iterator it=mapa.begin(); it!=mapa.end(); ++it) {
 		if(it->second > 0) {
-			int max = -1;
+			int max = -numeric_limits<int>::max();
 			int promF = 0, promC = 0;
 			int count = 0;
 			Coord coord;
@@ -477,10 +483,10 @@ void segmentar(Mat dist, Mat intermedia, map<int, int> mapa, Mat image, Coord* c
 		}
 	}
 
-   /*for (map<int,Coord>::iterator it=mapaCentros.begin(); it!=mapaCentros.end(); ++it) {
-    	cout << "Para la region " << it->first << " el centro está en la fila "
-        << it->second.x << " columna " << it->second.y << endl;
-   }*/
+	/*for (map<int,Coord>::iterator it=mapaCentros.begin(); it!=mapaCentros.end(); ++it) {
+	   cout << "Para la region " << it->first << " el centro está en la fila "
+	     << it->second.x << " columna " << it->second.y << endl;
+	   }*/
 
 	for (map<int,Bordes>::iterator it=mapaBordes.begin(); it!=mapaBordes.end(); ++it) {
 		crearMatriz(image, it->second.sf, it->second.inf, it->second.sc, it->second.ic, IDe);
